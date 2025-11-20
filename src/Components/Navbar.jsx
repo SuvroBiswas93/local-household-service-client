@@ -7,11 +7,13 @@ import { toast } from 'react-toastify';
 
 const Navbar = () => {
     const { user, logOut } = use(AuthContext)
+    const loginTime = localStorage.getItem("loginTime");
 
     console.log(logOut)
     const handleLogout = () => {
         logOut()
             .then(() => {
+                localStorage.removeItem("loginTime"); 
                 toast.success("You Logged Out successfully");
             })
             .catch((error) => {
@@ -119,6 +121,10 @@ const Navbar = () => {
                         >
                             <li className="text-center font-semibold text-gray-700 py-1">
                                 {user?.displayName || 'User'}
+                            </li>
+
+                            <li className="text-center text-sm text-gray-500 py-1">
+                                Login: {loginTime || 'Unknown'}
                             </li>
                             <div className="divider my-1"></div>
                             <li>
