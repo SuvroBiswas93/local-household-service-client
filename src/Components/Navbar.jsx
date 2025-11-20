@@ -2,7 +2,7 @@ import React, { use } from 'react';
 import { Link, Navigate, NavLink } from 'react-router';
 import { Leaf } from 'lucide-react';
 import { AuthContext } from '../Provider/AuthProvider';
-// import { User } from 'lucide-react';
+import { User } from 'lucide-react';
 import { toast } from 'react-toastify';
 
 const Navbar = () => {
@@ -65,7 +65,7 @@ const Navbar = () => {
 
                     {/* Logo */}
                     <Link to="/" className="text-green-600 flex items-center text-xl font-bold">
-                        <Leaf className="mr-1" /> GreenNest
+                        <Leaf className="mr-1" /> HomeHero
                     </Link>
                 </div>
 

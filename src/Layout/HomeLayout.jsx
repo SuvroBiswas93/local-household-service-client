@@ -2,13 +2,23 @@ import React from 'react';
 import Navbar from '../Components/Navbar';
 import { Outlet } from 'react-router';
 import Footer from '../Components/Footer';
+import { ToastContainer } from 'react-toastify';
 
 const Homelayout = () => {
     return (
         <div>
-            <Navbar></Navbar>
-            <Outlet></Outlet>
-            <Footer></Footer>
+            <div className='min-h-screen flex flex-col'>
+            <nav className=''>
+                <Navbar></Navbar>
+            </nav>           
+            <div className='flex-1  '>
+                <Outlet></Outlet>
+            </div>
+            <footer>
+                <Footer></Footer>
+            </footer>
+            <ToastContainer />
+        </div>
         </div>
     );
 };
