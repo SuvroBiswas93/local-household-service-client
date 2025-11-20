@@ -5,6 +5,9 @@ import { AuthContext } from '../Provider/AuthProvider';
 import { User } from 'lucide-react';
 import { toast } from 'react-toastify';
 import logo from '../../public/HomeHero.webp'
+import { motion } from "motion/react";
+
+const MotionLink = motion(Link);
 
 const Navbar = () => {
     const { user, logOut } = use(AuthContext)
@@ -140,18 +143,23 @@ const Navbar = () => {
                     </div>
                 ) : (
                     <div className="flex justify-center items-center gap-2 shrink-0">
-                        <Link
+                        <MotionLink
+                            
                             to="/auth/login"
+                            whileHover={{ scale: 1.1 }}
+                            whileTap={{ scale: 0.9 }}
                             className="btn btn-sm lg:btn-md bg-green-600 text-white hover:bg-green-700"
                         >
                             Login
-                        </Link>
-                        <Link
+                        </MotionLink>
+                        <MotionLink
                             to="/auth/register"
+                            whileHover={{ scale: 1.1 }}
+                            whileTap={{ scale: 0.9 }}
                             className="btn btn-sm lg:btn-md bg-green-600 text-white hover:bg-green-700"
                         >
                             Register
-                        </Link>
+                        </MotionLink>
                         <input
                             type="checkbox"
                             value="synthwave"
