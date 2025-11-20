@@ -2,8 +2,8 @@ import React from 'react';
 
 const Footer = () => {
     return (
-        <div>
-            
+        <div className='bg-red-400'>
+           This is Footer 
         </div>
     );
 };
