@@ -4,6 +4,7 @@ import { Leaf } from 'lucide-react';
 import { AuthContext } from '../Provider/AuthProvider';
 import { User } from 'lucide-react';
 import { toast } from 'react-toastify';
+import logo from '../../public/HomeHero.webp'
 
 const Navbar = () => {
     const { user, logOut } = use(AuthContext)
@@ -13,7 +14,7 @@ const Navbar = () => {
     const handleLogout = () => {
         logOut()
             .then(() => {
-                localStorage.removeItem("loginTime"); 
+                localStorage.removeItem("loginTime");
                 toast.success("You Logged Out successfully");
             })
             .catch((error) => {
@@ -24,7 +25,7 @@ const Navbar = () => {
         <div className="navbar bg-base-100 shadow-sm">
             <div className="w-11/12 mx-auto flex justify-between items-center">
                 {/* Left section (Logo + Dropdown) */}
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-1 shrink-0 ">
                     {/* Mobile dropdown */}
                     <div className="dropdown">
                         <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -67,7 +68,7 @@ const Navbar = () => {
 
                     {/* Logo */}
                     <Link to="/" className="text-green-600 flex items-center text-xl font-bold">
-                        <Leaf className="mr-1" /> HomeHero
+                        <img src={logo} alt="Logo" className="w-8 h-8 mr-1" /> Home<span className='text-blue-500'>Hero</span>
                     </Link>
                 </div>
 
@@ -138,7 +139,7 @@ const Navbar = () => {
                         </ul>
                     </div>
                 ) : (
-                    <div className="flex gap-2">
+                    <div className="flex justify-center items-center gap-2 shrink-0">
                         <Link
                             to="/auth/login"
                             className="btn btn-sm lg:btn-md bg-green-600 text-white hover:bg-green-700"
@@ -151,6 +152,11 @@ const Navbar = () => {
                         >
                             Register
                         </Link>
+                        <input
+                            type="checkbox"
+                            value="synthwave"
+                            className="toggle theme-controller ml-2"
+                        />
                     </div>
                 )}
             </div>
