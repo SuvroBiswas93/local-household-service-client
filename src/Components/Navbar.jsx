@@ -51,11 +51,11 @@ const Navbar = () => {
                                 </NavLink>
                             </li>
                             <li>
-                                <NavLink to="/plants"
+                                <NavLink to="/services"
                                     className={({ isActive }) =>
                                         isActive ? 'text-green-600 font-semibold' : ''
                                     }>
-                                    Plants
+                                    Services
                                 </NavLink>
                             </li>
                             <li>
@@ -87,11 +87,11 @@ const Navbar = () => {
                             </NavLink>
                         </li>
                         <li>
-                            <NavLink to="/plants"
+                            <NavLink to="/services"
                                 className={({ isActive }) =>
                                     isActive ? 'text-green-600 border-b-2 border-green-600 pb-1' : ''
                                 }>
-                                Plants
+                                Services
                             </NavLink>
                         </li>
                         <li>
