@@ -17,7 +17,7 @@ export const router = createBrowserRouter([
         path:"/services",
         element:<Services></Services>,
         loader:()=>fetch('http://localhost:3000/services'),
-        hydrateFallbackElement:<p>Loading....</p>
+        hydrateFallbackElement:<span className="loading flex justify-center items-center min-h-[85vh] mx-auto loading-spinner text-info"></span>
       }
     ]
   },
