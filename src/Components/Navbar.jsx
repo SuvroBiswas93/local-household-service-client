@@ -71,7 +71,7 @@ const Navbar = () => {
 
                     {/* Logo */}
                     <Link to="/" className="text-green-600 flex items-center text-xl font-bold">
-                        <img src={logo} alt="Logo" className="w-8 h-8 mr-1" /> Home<span className='text-blue-400'>Hero</span>
+                        <img src={logo} alt="Logo" className="w-10 h-10 mr-1" /> Home<span className='text-blue-400'>Hero</span>
                     </Link>
                 </div>
 
@@ -102,9 +102,22 @@ const Navbar = () => {
                                 My Profile
                             </NavLink>
                         </li>
+
+                        {/* when user login the navabar should contains */}
+
+                        {
+                          user &&(<>
+                          <li>1</li>
+                          <li>1</li>
+                          <li>1</li>
+                          <li>1</li>
+                          </>)      
+                        }
                     </ul>
                 </div>
+
                 {/* div image thakbe state true false */}
+                
 
                 {user ? (
                     <div className="dropdown dropdown-end">

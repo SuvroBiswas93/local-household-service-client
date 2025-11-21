@@ -15,7 +15,7 @@ const Footer = () => {
                     <div>
                         <Link to='/'>
                             <div className="flex items-center gap-2 mb-4">
-                                <img src={logo} alt="Logo" className="w-8 h-8 mr-1" />
+                                <img src={logo} alt="Logo" className="w-10 h-10 mr-1" />
                                 <span className="text-2xl font-bold text-green-400">Home<span className='text-blue-500'>Hero</span></span>
                             </div>
                         </Link>
@@ -37,7 +37,7 @@ const Footer = () => {
                             </li>
                             <li>
                                 <Link to="/services" className="text-gray-400 hover:text-blue-400 transition">
-                                    Plants
+                                    Services
                                 </Link>
                             </li>
 
