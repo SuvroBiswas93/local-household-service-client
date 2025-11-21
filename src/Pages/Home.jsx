@@ -2,12 +2,14 @@ import React from 'react';
 import HeroSlider from '../Components/HeroSlider';
 import Services from './Services';
 import WhyChooseUs from '../Components/WhyChooseUs';
+import Testimonials from '../Components/Testimonials';
 
 const Home = () => {
     return (
         <div>
             <HeroSlider></HeroSlider>
             <WhyChooseUs></WhyChooseUs>
+            <Testimonials></Testimonials>
             
         </div>
     );
