@@ -6,22 +6,19 @@ const MotionLink = motion(Link)
 
 const slides = [
   {
-    image:
-      "https://plus.unsplash.com/premium_photo-1675173579498-3b5eb0e191cf?auto=format&fit=crop&q=80&w=837",
-    title: "Grow Green, Live Clean",
-    desc: "Purify your air, brighten your home, and feel calm with indoor nature.",
+    image:"https://plus.unsplash.com/premium_photo-1664910117544-5a3eed7c6413?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    title: "Clean Home, Clear Mind",
+    desc: "Enjoy spotless rooms and stress-free living with our expert cleaning support.",
   },
   {
-    image:
-      "https://images.unsplash.com/photo-1648271824505-64e6b7371049?auto=format&fit=crop&q=80&w=871",
-    title: "Nurture Nature, Nurture Yourself",
-    desc: "A little care keeps your plants blooming and brings peace to your heart.",
+    image:"https://plus.unsplash.com/premium_photo-1682126009570-3fe2399162f7?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    title: "Care That Makes Life Easier",
+    desc: "Reliable household help to keep your home running smoothly every day.",
   },
   {
-    image:
-      "https://images.unsplash.com/photo-1758524052292-38f3ec63b572?auto=format&fit=crop&q=80&w=1032",
-    title: "Let Nature Inspire Your Space",
-    desc: "Simple greenery can transform your space into a refreshing oasis.",
+    image:"https://plus.unsplash.com/premium_photo-1661719110458-f97f4b0a9bd4?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    title: "Comfort Starts at Home",
+    desc: "From cleaning to maintenance, we keep your space fresh, tidy, and welcoming.",
   },
 ];
 
@@ -36,14 +33,14 @@ const HeroSlider = () => {
     setIndex((prev) => (prev - 1 + slides.length) % slides.length);
   };
 
-  // ⭐ Auto Slide every 4 seconds
+  // Auto Slide every 4 seconds
   useEffect(() => {
     const timer = setInterval(nextSlide, 4000);
     return () => clearInterval(timer);
   }, [index]);
 
   return (
-    <div className="relative w-full h-[500px] md:h-[600px] overflow-hidden rounded-xl shadow-lg">
+    <div className="relative w-full h-[400px] md:h-[500px] overflow-hidden rounded-xl shadow-lg">
       <AnimatePresence>
         <motion.div
           key={index}
