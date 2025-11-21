@@ -22,7 +22,7 @@ const features = [
 const FeatureCard = ({ feature, index }) => {
   return (
     <motion.div
-      className="bg-green-200 p-6 rounded-xl shadow cursor-pointer"
+      className="bg-green-200 hover:bg-green-300 p-6 rounded-xl shadow cursor-pointer"
       whileHover={{ scale: 1.05, y: -5 }}
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
