@@ -156,7 +156,7 @@ const Navbar = () => {
                             to="/auth/register"
                             whileHover={{ scale: 1.1 }}
                             whileTap={{ scale: 0.9 }}
-                            className="btn btn-sm lg:btn-md bg-green-600 text-white hover:bg-green-700"
+                            className="btn btn-sm lg:btn-md bg-blue-400 text-white hover:bg-blue-500"
                         >
                             Register
                         </MotionLink>
