@@ -108,7 +108,14 @@ const Navbar = () => {
 
                         {
                             user && (<>
-                                <li>1</li>
+                                 <li>
+                                    <NavLink to="/add-service"
+                                        className={({ isActive }) =>
+                                            isActive ? 'text-green-600 border-b-2 border-green-600 pb-1' : ''
+                                        }>
+                                        Add Services
+                                    </NavLink>
+                                </li>
                                 <li>1</li>
                                 <li>1</li>
                                 <li>

@@ -6,6 +6,8 @@ import Services from "../Pages/Services";
 import Login from "../Pages/Login";
 import AuthLayout from "../Layout/AuthLayout";
 import Register from "../Pages/Register";
+import AddService from "../Pages/AddService";
+import PrivateRoute from "../Provider/PrivateRoute";
 
 export const router = createBrowserRouter([
   {
@@ -21,6 +23,12 @@ export const router = createBrowserRouter([
         element:<Services></Services>,
         loader:()=>fetch('https://local-household-service-server.vercel.app/services'),
         hydrateFallbackElement:<span className="loading flex justify-center items-center min-h-[85vh] mx-auto loading-spinner text-info"></span>
+      },
+      {
+        path:'/add-service',
+        element:<PrivateRoute>
+          <AddService></AddService>
+        </PrivateRoute>
       }
     ]
   },
@@ -36,6 +44,7 @@ export const router = createBrowserRouter([
         path:'/auth/register',
         element:<Register></Register>
       }
+      
 
     ]
   },
