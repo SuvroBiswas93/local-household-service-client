@@ -22,8 +22,9 @@ const ServiceDetails = () => {
         const bookingInfo = {
             userEmail: user?.email,
             serviceId: _id,
-            bookingDatedate: bookingDate,
+            bookingDate: bookingDate,
             price: Price,
+            Service: Service
         };
 
         try {
