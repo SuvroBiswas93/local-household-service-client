@@ -55,7 +55,7 @@ const Navbar = () => {
                                     className={({ isActive }) =>
                                         isActive ? 'text-green-600 font-semibold' : ''
                                     }>
-                                    All Services
+                                     Service List
                                 </NavLink>
                             </li>
 
@@ -106,7 +106,7 @@ const Navbar = () => {
                                 className={({ isActive }) =>
                                     isActive ? 'text-green-600 border-b-2 border-green-600 pb-1' : ''
                                 }>
-                                All Services
+                                Service List
                             </NavLink>
                         </li>
 

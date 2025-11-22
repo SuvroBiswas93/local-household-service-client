@@ -8,6 +8,7 @@ import AuthLayout from "../Layout/AuthLayout";
 import Register from "../Pages/Register";
 import AddService from "../Pages/AddService";
 import PrivateRoute from "../Provider/PrivateRoute";
+import ServiceDetails from "../Pages/ServiceDetails";
 
 export const router = createBrowserRouter([
   {
@@ -29,6 +30,14 @@ export const router = createBrowserRouter([
         element:<PrivateRoute>
           <AddService></AddService>
         </PrivateRoute>
+      },
+      {
+        path :'/service-details/:id',
+        element:<PrivateRoute>
+          <ServiceDetails></ServiceDetails>
+        </PrivateRoute>,
+        loader:({params})=>fetch(`https://local-household-service-server.vercel.app/services/${params.id}`),
+        hydrateFallbackElement:<span className="loading flex justify-center items-center min-h-[85vh] mx-auto loading-spinner text-info"></span>
       }
     ]
   },

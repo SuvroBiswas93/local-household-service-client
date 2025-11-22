@@ -1,8 +1,9 @@
 import React from "react";
 import { User, Layers, Tag } from "lucide-react";
+import { Link } from "react-router";
 
 const ServiceCard = ({ data }) => {
-  const { Service, Provider, Category, Price, Description, Image } = data;
+  const { Service, Provider, Category, Price, Description, Image, _id } = data;
 
   return (
     <div
@@ -42,9 +43,13 @@ const ServiceCard = ({ data }) => {
           <span>${Price}</span>
         </div>
 
-        <button className="w-full bg-blue-500 cursor-pointer text-white py-2 rounded-lg hover:bg-blue-600 transition">
+        <Link
+          to={`/service-details/${_id}`}
+          className="block w-full bg-blue-500 cursor-pointer text-center text-white py-2 rounded-lg hover:bg-blue-600 transition"
+        >
           View Details
-        </button>
+        </Link>
+
       </div>
     </div>
   );
