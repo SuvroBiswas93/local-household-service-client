@@ -18,7 +18,7 @@ const AddService = () => {
             Provider: e.target.provider.value,
             Email: e.target.email.value,
             created_At: new Date(),
-            created_By:user.email
+            created_By:user?.email || 'Anonymous'
 
         }
         console.log(formData)
@@ -38,7 +38,7 @@ const AddService = () => {
         })
         .catch(err=>{
             console.log(err)
-            toast.error(err);
+            toast.error(err.message || 'Something Went Wrong');
         })
     }
 
