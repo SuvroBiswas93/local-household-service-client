@@ -5,6 +5,7 @@ import Home from "../Pages/Home";
 import Services from "../Pages/Services";
 import Login from "../Pages/Login";
 import AuthLayout from "../Layout/AuthLayout";
+import Register from "../Pages/Register";
 
 export const router = createBrowserRouter([
   {
@@ -33,6 +34,7 @@ export const router = createBrowserRouter([
       },
       {
         path:'/auth/register',
+        element:<Register></Register>
       }
 
     ]

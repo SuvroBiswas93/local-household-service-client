@@ -19,14 +19,15 @@ const features = [
   },
 ];
 
-const FeatureCard = ({ feature, index }) => {
+const FeatureCard = ({ feature }) => {
   return (
     <motion.div
       className="bg-green-200 hover:bg-green-300 p-6 rounded-xl shadow cursor-pointer"
       whileHover={{ scale: 1.05, y: -5 }}
       initial={{ opacity: 0, y: 30 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: index * 0.2, duration: 0.5, type: "spring", stiffness: 120 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.4, type: "spring", stiffness: 120 }}
     >
       <img src={feature.img} alt={feature.title} className="w-14 mx-auto mb-4" />
       <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
@@ -40,32 +41,36 @@ const WhyChooseUs = () => {
     <motion.section
       className="px-6 py-16 bg-blue-50"
       initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.8 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.3 }} // FAST, no delay
     >
       <div className="max-w-6xl mx-auto text-center">
+
+        {/* FAST Title Animation */}
         <motion.h2
           className="text-3xl font-bold text-gray-800 mb-4"
-          initial={{ opacity: 0, y: -20 }}
+          initial={{ opacity: 0, y: -15 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.3 }}
         >
           Why Choose Us?
         </motion.h2>
+
+        {/* FAST Paragraph Animation */}
         <motion.p
           className="text-gray-600 mb-12 max-w-2xl mx-auto"
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
+          transition={{ duration: 0.3 }}
         >
           Finding reliable household services should be simple. HomeHero connects you with
           trusted local experts—quickly and safely.
         </motion.p>
 
+        {/* Cards */}
         <div className="grid gap-8 md:grid-cols-3">
           {features.map((feature, index) => (
-            <FeatureCard key={index} feature={feature} index={index} />
+            <FeatureCard key={index} feature={feature} />
           ))}
         </div>
       </div>
