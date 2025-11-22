@@ -55,21 +55,28 @@ const Navbar = () => {
                                     className={({ isActive }) =>
                                         isActive ? 'text-green-600 font-semibold' : ''
                                     }>
-                                     Service List
+                                    Service List
                                 </NavLink>
                             </li>
 
                             {
                                 user && (<>
                                     <li>
-                                    <NavLink to="/add-service"
-                                        className={({ isActive }) =>
-                                            isActive ? 'text-green-600 border-b-2 border-green-600 pb-1' : ''
-                                        }>
-                                        Add Services
-                                    </NavLink>
-                                </li>
-                                    <li>1</li>
+                                        <NavLink to="/add-service"
+                                            className={({ isActive }) =>
+                                                isActive ? 'text-green-600 border-b-2 border-green-600 pb-1' : ''
+                                            }>
+                                            Add Services
+                                        </NavLink>
+                                    </li>
+                                    <li>
+                                        <NavLink to="/my-bookings"
+                                            className={({ isActive }) =>
+                                                isActive ? 'text-green-600 border-b-2 border-green-600 pb-1' : ''
+                                            }>
+                                            My Bookings
+                                        </NavLink>
+                                    </li>
                                     <li>1</li>
                                     <li>
                                         <NavLink to="/auth/profile"
@@ -115,7 +122,7 @@ const Navbar = () => {
 
                         {
                             user && (<>
-                                 <li>
+                                <li>
                                     <NavLink to="/add-service"
                                         className={({ isActive }) =>
                                             isActive ? 'text-green-600 border-b-2 border-green-600 pb-1' : ''
@@ -123,7 +130,15 @@ const Navbar = () => {
                                         Add Services
                                     </NavLink>
                                 </li>
-                                <li>1</li>
+                                <li>
+                                    <NavLink to="/my-bookings"
+                                        className={({ isActive }) =>
+                                            isActive ? 'text-green-600 border-b-2 border-green-600 pb-1' : ''
+                                        }>
+                                        My Bookings
+                                    </NavLink>
+                                </li>
+
                                 <li>1</li>
                                 <li>
                                     <NavLink to="/auth/profile"
@@ -162,6 +177,10 @@ const Navbar = () => {
                                 {user?.displayName || 'User'}
                             </li>
 
+                            <li className="text-center font-semibold text-gray-700 py-1">
+                                {user?.email || 'User'}
+                            </li>
+                            
                             <li className="text-center text-sm text-gray-500 py-1">
                                 Login: {loginTime || 'Unknown'}
                             </li>

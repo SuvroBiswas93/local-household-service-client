@@ -9,6 +9,7 @@ import Register from "../Pages/Register";
 import AddService from "../Pages/AddService";
 import PrivateRoute from "../Provider/PrivateRoute";
 import ServiceDetails from "../Pages/ServiceDetails";
+import MyBookings from "../Pages/MyBookings";
 
 export const router = createBrowserRouter([
   {
@@ -38,6 +39,10 @@ export const router = createBrowserRouter([
         </PrivateRoute>,
         loader:({params})=>fetch(`https://local-household-service-server.vercel.app/services/${params.id}`),
         hydrateFallbackElement:<span className="loading flex justify-center items-center min-h-[85vh] mx-auto loading-spinner text-info"></span>
+      },
+      {
+        path:'/my-bookings',
+        element:<MyBookings></MyBookings>
       }
     ]
   },
