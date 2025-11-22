@@ -24,7 +24,7 @@ const ServiceCard = ({ data }) => {
     >
       {/* Floating Glow */}
       <motion.div
-        className="absolute inset-0 bg-gradient-to-br from-blue-300/20 to-transparent opacity-0 pointer-events-none"
+        className="absolute inset-0 bg-linear-to-br from-blue-300/20 to-transparent opacity-0 pointer-events-none"
         whileHover={{ opacity: 1 }}
         transition={{ duration: 0.4 }}
       />
