@@ -55,17 +55,25 @@ const Navbar = () => {
                                     className={({ isActive }) =>
                                         isActive ? 'text-green-600 font-semibold' : ''
                                     }>
-                                   All Services
+                                    All Services
                                 </NavLink>
                             </li>
-                            <li>
-                                <NavLink to="/auth/profile"
-                                    className={({ isActive }) =>
-                                        isActive ? 'text-green-600 font-semibold' : ''
-                                    }>
-                                    My Profile
-                                </NavLink>
-                            </li>
+
+                            {
+                                user && (<>
+                                    <li>1</li>
+                                    <li>1</li>
+                                    <li>1</li>
+                                    <li>
+                                        <NavLink to="/auth/profile"
+                                            className={({ isActive }) =>
+                                                isActive ? 'text-green-600 font-semibold' : ''
+                                            }>
+                                            My Profile
+                                        </NavLink>
+                                    </li>
+                                </>)
+                            }
                         </ul>
                     </div>
 
@@ -91,33 +99,33 @@ const Navbar = () => {
                                 className={({ isActive }) =>
                                     isActive ? 'text-green-600 border-b-2 border-green-600 pb-1' : ''
                                 }>
-                               All Services
+                                All Services
                             </NavLink>
                         </li>
-                        <li>
-                            <NavLink to="/auth/profile"
-                                className={({ isActive }) =>
-                                    isActive ? 'text-green-600 border-b-2 border-green-600 pb-1' : ''
-                                }>
-                                My Profile
-                            </NavLink>
-                        </li>
+
 
                         {/* when user login the navabar should contains */}
 
                         {
-                          user &&(<>
-                          <li>1</li>
-                          <li>1</li>
-                          <li>1</li>
-                          <li>1</li>
-                          </>)      
+                            user && (<>
+                                <li>1</li>
+                                <li>1</li>
+                                <li>1</li>
+                                <li>
+                                    <NavLink to="/auth/profile"
+                                        className={({ isActive }) =>
+                                            isActive ? 'text-green-600 border-b-2 border-green-600 pb-1' : ''
+                                        }>
+                                        My Profile
+                                    </NavLink>
+                                </li>
+                            </>)
                         }
                     </ul>
                 </div>
 
                 {/* div image thakbe state true false */}
-                
+
 
                 {user ? (
                     <div className="dropdown dropdown-end">
@@ -157,7 +165,7 @@ const Navbar = () => {
                 ) : (
                     <div className="flex justify-center items-center gap-2 shrink-0">
                         <MotionLink
-                            
+
                             to="/auth/login"
                             whileHover={{ scale: 1.1 }}
                             whileTap={{ scale: 0.9 }}
