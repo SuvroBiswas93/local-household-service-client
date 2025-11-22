@@ -1,12 +1,48 @@
-import React from 'react';
+import React, { use } from 'react';
+import { AuthContext } from '../Provider/AuthProvider';
 
 const AddService = () => {
+    const{ user } = use(AuthContext)
+    const handleAddService = (e) => {
+        e.preventDefault()
+
+        const formData = {
+            Service: e.target.serviceName.value,
+            Category: e.target.category.value,
+            Price: e.target.price.value,
+            Description: e.target.description.value,
+            Image: e.target.image.value,
+            Provider: e.target.provider.value,
+            Email: e.target.email.value,
+            created_At: new Date(),
+            created_By:user.email
+
+        }
+        console.log(formData)
+        fetch('https://local-household-service-server.vercel.app/services',{
+            method:'POST',
+            headers:{
+                'Content-Type':'application/json'
+            },
+            body:JSON.stringify(formData)
+        })
+        .then(res=>res.json())
+        .then(data=>{
+            console.log(data)
+        })
+        .catch(err=>{
+            console.log(err)
+        })
+    }
+
     return (
         <div className='bg-blue-50 w-11/12 mx-auto mt-6 py-4 px-4 rounded-lg'>
             <div className="max-w-2xl mx-auto mt-6 mb-6 bg-white shadow-lg rounded-lg p-8 ">
                 <h2 className="text-3xl font-bold text-center mb-6">Add New Service</h2>
 
-                <form className="space-y-5">
+                <form 
+                onSubmit={handleAddService}
+                className="space-y-5">
                     {/* Service Name */}
                     <div>
                         <label className="label font-medium">Service Name</label>
