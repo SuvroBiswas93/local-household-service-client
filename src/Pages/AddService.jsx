@@ -1,8 +1,11 @@
 import React, { use } from 'react';
 import { AuthContext } from '../Provider/AuthProvider';
+import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router';
 
 const AddService = () => {
     const{ user } = use(AuthContext)
+    const navigate = useNavigate()
     const handleAddService = (e) => {
         e.preventDefault()
 
@@ -29,9 +32,13 @@ const AddService = () => {
         .then(res=>res.json())
         .then(data=>{
             console.log(data)
+            toast.success('Services Created Succefully!!')
+            e.target.reset()
+            navigate('/services')
         })
         .catch(err=>{
             console.log(err)
+            toast.error(err);
         })
     }
 
