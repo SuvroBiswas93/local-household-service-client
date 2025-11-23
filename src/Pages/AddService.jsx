@@ -17,6 +17,7 @@ const AddService = () => {
             Image: e.target.image.value,
             Provider: e.target.provider.value,
             Email: e.target.email.value,
+            providerEmail: user?.email,
             created_At: new Date(),
             created_By:user?.email || 'Anonymous'
 

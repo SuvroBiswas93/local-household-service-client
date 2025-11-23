@@ -57,9 +57,12 @@ const MyBookings = () => {
     }
   };
 
-  if (loading) {
-    return <p className="text-center mt-10">Loading your bookings...</p>;
-  }
+ if (loading) {
+  return (
+    <span className="loading flex justify-center items-center min-h-[85vh] mx-auto loading-spinner text-info"></span>
+  );
+}
+
 
   return (
     <div className="max-w-6xl mx-auto p-6">

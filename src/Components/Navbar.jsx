@@ -138,6 +138,14 @@ const Navbar = () => {
                                         My Bookings
                                     </NavLink>
                                 </li>
+                                <li>
+                                    <NavLink to="/my-services"
+                                        className={({ isActive }) =>
+                                            isActive ? 'text-green-600 border-b-2 border-green-600 pb-1' : ''
+                                        }>
+                                        My Services
+                                    </NavLink>
+                                </li>
 
                                 <li>1</li>
                                 <li>
