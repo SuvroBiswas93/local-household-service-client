@@ -27,8 +27,8 @@ const MyProfile = () => {
     };
 
     return (
-        <div className="flex flex-col items-center justify-center min-h-screen bg-linear-to-br from-green-50 to-emerald-50 p-4">
-            <div className="bg-white rounded-2xl shadow-lg p-8 w-full max-w-md border border-green-100 text-center">
+        <div className="flex flex-col items-center justify-center min-h-screen p-4">
+            <div className="bg-white rounded-2xl shadow-lg p-8 w-full max-w-md border bg-linear-to-r from-green-400 to-blue-400 border-green-100 text-center">
                 <h2 className="text-2xl font-semibold text-green-700 mb-6">My Profile</h2>
 
                 <img
@@ -60,7 +60,7 @@ const MyProfile = () => {
                                 type="text"
                                 value={name}
                                 onChange={(e) => setName(e.target.value)}
-                                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500"
+                                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 text-black"
                                 required
                             />
                         </div>
@@ -73,7 +73,7 @@ const MyProfile = () => {
                                 type="text"
                                 value={photo}
                                 onChange={(e) => setPhoto(e.target.value)}
-                                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500"
+                                className="w-full px-4 py-2 border text-black border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500"
                                 required
                             />
                         </div>

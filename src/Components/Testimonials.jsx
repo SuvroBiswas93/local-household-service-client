@@ -62,12 +62,12 @@ const ParallaxCard = ({ testimonial }) => {
 
 const Testimonials = () => {
   return (
-    <section className="px-6 py-16 bg-white">
+    <section className="px-6 py-16 dark:bg-black text-gray-900 dark:text-white">
       <div className="max-w-6xl mx-auto text-center">
-        <h2 className="text-3xl font-bold text-gray-800 mb-4">
+        <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-200 mb-4">
           What Our Customers Say
         </h2>
-        <p className="text-gray-600 mb-12 max-w-2xl mx-auto">
+        <p className="text-gray-600 dark:text-gray-300 mb-12 max-w-2xl mx-auto">
           Real experiences from people who trust HomeHero for their household
           needs.
         </p>

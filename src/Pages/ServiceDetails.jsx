@@ -8,7 +8,8 @@ import { AuthContext } from "../Provider/AuthProvider";
 
 const ServiceDetails = () => {
   const data = useLoaderData();
-  const { Service, Provider, Category, Price, Description, Image, _id ,providerEmail} = data.result;
+  const { Service, Provider, Category, Price, Description, Image, _id, providerEmail, created_At,
+    created_By, Email } = data.result;
   console.log(data.result)
 
   const { user } = useContext(AuthContext);
@@ -96,6 +97,32 @@ const ServiceDetails = () => {
               <p className="text-gray-700 leading-relaxed text-lg">{Description}</p>
 
               {/* Info Badges */}
+              {/* Additional Information */}
+              <div className="bg-blue-50 border border-blue-200 rounded-xl p-6 shadow-sm max-w-md">
+                <h3 className="text-xl font-semibold text-blue-800 mb-4">Service Details Info</h3>
+
+                <div className="flex flex-col gap-3 text-gray-700">
+                  <div className="flex justify-between items-center bg-white px-4 py-2 rounded-lg shadow-sm">
+                    <span className="font-medium text-blue-600">Provider Email:</span>
+                    <span className="text-gray-800">{Email}</span>
+                  </div>
+
+                  <div className="flex justify-between items-center bg-white px-4 py-2 rounded-lg shadow-sm">
+                    <span className="font-medium text-blue-600">Created By:</span>
+                    <span className="text-gray-800">{created_By || "Not Available"}</span>
+                  </div>
+
+                  <div className="flex justify-between items-center bg-white px-4 py-2 rounded-lg shadow-sm">
+                    <span className="font-medium text-blue-600">Created At:</span>
+                    <span className="text-gray-800">
+                      {created_At ? new Date(created_At).toLocaleDateString() : "Not Available"}
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+
+
               <div className="flex flex-wrap gap-3">
                 <span className="flex items-center gap-2 px-4 py-2 bg-blue-50 text-blue-700 rounded-full">
                   <User size={18} /> {Provider}
@@ -121,18 +148,17 @@ const ServiceDetails = () => {
                   }}
                   disabled={!user || isOwner || alreadyBooked}
                   className={`w-full md:w-auto px-8 py-3 rounded-xl font-semibold shadow-md
-                    ${
-                      !user || isOwner || alreadyBooked
-                        ? "bg-gray-400 cursor-not-allowed"
-                        : "bg-green-600 cursor-pointer text-white hover:bg-green-700"
+                    ${!user || isOwner || alreadyBooked
+                      ? "bg-gray-400 cursor-not-allowed"
+                      : "bg-green-600 cursor-pointer text-white hover:bg-green-700"
                     }
                   `}
                 >
                   {isOwner
                     ? "Owner (Can't Book)"
                     : alreadyBooked
-                    ? "Already Booked"
-                    : "Book Now"}
+                      ? "Already Booked"
+                      : "Book Now"}
                 </button>
               </div>
             </div>

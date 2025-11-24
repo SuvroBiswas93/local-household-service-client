@@ -44,13 +44,14 @@ const AddService = () => {
     }
 
     return (
-        <div className='bg-blue-50 w-11/12 mx-auto mt-6 py-4 px-4 rounded-lg'>
-            <div className="max-w-2xl mx-auto mt-6 mb-6 bg-white shadow-lg rounded-lg p-8 ">
+        <div className=' w-11/12 mx-auto mt-6 py-4 px-4 rounded-lg '>
+            <div className="max-w-2xl mx-auto mt-6 mb-6 bg-linear-to-r from-green-400 to-blue-400 shadow-lg rounded-lg p-8">
+
                 <h2 className="text-3xl font-bold text-center mb-6">Add New Service</h2>
 
                 <form 
                 onSubmit={handleAddService}
-                className="space-y-5">
+                className="space-y-5 ">
                     {/* Service Name */}
                     <div>
                         <label className="label font-medium">Service Name</label>

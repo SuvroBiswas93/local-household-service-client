@@ -16,7 +16,7 @@ const MyBookings = () => {
     const fetchBookings = async () => {
       try {
         const res = await axios.get(
-          `https://local-household-service-server.vercel.app/bookings?userEmail=${user.email}`
+          `https://local-household-service-server.vercel.app/bookings`
         );
         setBookings(res.data);
       } catch (err) {
@@ -78,7 +78,7 @@ const MyBookings = () => {
         <>
           {/* Table for md and up */}
           <div className="hidden md:block overflow-x-auto">
-            <table className="w-full bg-white rounded-xl shadow-lg overflow-hidden">
+            <table className="w-full dark:bg-black rounded-xl shadow-lg overflow-hidden">
               <thead className="bg-blue-600 text-white">
                 <tr>
                   <th className="py-3 px-4 text-left">Service</th>
@@ -92,7 +92,7 @@ const MyBookings = () => {
                 {bookings.map((booking) => (
                   <tr
                     key={booking._id}
-                    className="border-b last:border-none hover:bg-gray-50 transition-all"
+                    className="border-b last:border-none  transition-all"
                   >
                     <td className="py-3 px-4 font-bold">{booking.Service}</td>
                     <td className="py-3 px-4">{booking.serviceId}</td>
@@ -117,7 +117,7 @@ const MyBookings = () => {
           </div>
 
           {/* Card layout for mobile */}
-          <div className="md:hidden flex flex-col gap-4">
+          <div className="md:hidden flex flex-col gap-4 ">
             {bookings.map((booking) => (
               <motion.div
                 key={booking._id}
@@ -125,7 +125,7 @@ const MyBookings = () => {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 20 }}
                 transition={{ duration: 0.3 }}
-                className="p-4 bg-white rounded-xl shadow-xl "
+                className="p-4 dark:bg-black rounded-xl shadow-xl "
               >
                 <p className="font-bold">
                   <span className="">Service:</span> {booking.Service}
