@@ -137,6 +137,46 @@ const ServiceDetails = () => {
                 </span>
               </div>
 
+              {/* Reviews Section */}
+              {data.result.reviews && data.result.reviews.length > 0 && (
+                <div className="max-w-4xl mx-auto mt-12">
+                  <h2 className="text-2xl font-bold mb-6 text-blue-700">Reviews</h2>
+                  <div className="space-y-4">
+                    {data.result.reviews.map((review, index) => (
+                      <motion.div
+                        key={index}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: index * 0.1 }}
+                        className="p-4 bg-blue-50 rounded-xl shadow-sm flex flex-col gap-2"
+                      >
+                        <div className="flex items-center gap-2">
+                          <span className="font-semibold text-gray-800">{review.userEmail}</span>
+                          <div className="flex">
+                            {Array.from({ length: 5 }).map((_, i) => (
+                              <svg
+                                key={i}
+                                className={`w-5 h-5 ${i < review.rating ? "text-yellow-400" : "text-gray-300"}`}
+                                fill="currentColor"
+                                viewBox="0 0 20 20"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path d="M9.049 2.927C9.316 2.091 10.684 2.091 10.951 2.927l1.286 3.963a1 1 0 0 0 .95.69h4.171c.969 0 1.371 1.24.588 1.81l-3.375 2.455a1 1 0 0 0-.364 1.118l1.286 3.963c.267.836-.69 1.528-1.396 1.118l-3.375-2.455a1 1 0 0 0-1.176 0l-3.375 2.455c-.706.41-1.663-.282-1.396-1.118l1.286-3.963a1 1 0 0 0-.364-1.118L2.958 9.39c-.783-.57-.38-1.81.588-1.81h4.17a1 1 0 0 0 .951-.69l1.286-3.963z" />
+                              </svg>
+                            ))}
+                          </div>
+                        </div>
+                        {review.comment && <p className="text-gray-700">{review.comment}</p>}
+                        <span className="text-sm text-gray-400">
+                          {new Date(review.date).toLocaleDateString()}
+                        </span>
+                      </motion.div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+
               {/* Book Button */}
               <div className="pt-4">
                 <button
