@@ -11,11 +11,13 @@ import PrivateRoute from "../Provider/PrivateRoute";
 import ServiceDetails from "../Pages/ServiceDetails";
 import MyBookings from "../Pages/MyBookings";
 import MyServices from "../Pages/MyServices";
+import ErrorPage from "../Pages/ErrorPage";
 
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <Homelayout></Homelayout>,
+    errorElement:<ErrorPage></ErrorPage>,
     children:[
       {
         index:true,
@@ -24,8 +26,7 @@ export const router = createBrowserRouter([
       {
         path:"/services",
         element:<Services></Services>,
-        loader:()=>fetch('https://local-household-service-server.vercel.app/services'),
-        hydrateFallbackElement:<span className="loading flex justify-center items-center min-h-[85vh] mx-auto loading-spinner text-info"></span>
+        
       },
       {
         path:'/add-service',
@@ -39,7 +40,9 @@ export const router = createBrowserRouter([
           <ServiceDetails></ServiceDetails>
         </PrivateRoute>,
         loader:({params})=>fetch(`https://local-household-service-server.vercel.app/services/${params.id}`),
-        hydrateFallbackElement:<span className="loading flex justify-center items-center min-h-[85vh] mx-auto loading-spinner text-info"></span>
+        hydrateFallbackElement:<div className="flex justify-center items-center mt-12">
+          <div className="loader border-t-4 border-blue-600 border-solid rounded-full w-12 h-12 animate-spin"></div>
+        </div>
       },
       {
         path:'/my-bookings',
@@ -58,6 +61,7 @@ export const router = createBrowserRouter([
   {
     path:'/auth',
     element:<AuthLayout></AuthLayout>,
+    errorElement:<ErrorPage></ErrorPage>,
     children:[
       {
         path:'/auth/login',

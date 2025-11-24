@@ -12,7 +12,7 @@ const AddService = () => {
         const formData = {
             Service: e.target.serviceName.value,
             Category: e.target.category.value,
-            Price: e.target.price.value,
+            Price: parseInt(e.target.price.value),
             Description: e.target.description.value,
             Image: e.target.image.value,
             Provider: e.target.provider.value,
