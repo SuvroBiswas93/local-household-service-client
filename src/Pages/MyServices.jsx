@@ -86,7 +86,7 @@ const MyServices = () => {
     try {
       // include providerEmail in the body for ownership check on server
       const payload = {
-        providerEmail: user.email,
+        Email: user.email,
         Service: editingService.Service,
         Category: editingService.Category,
         Price: editingService.Price,
@@ -119,12 +119,12 @@ const MyServices = () => {
   };
 
   return (
-    <div className="p-4 max-w-7xl mx-auto">
-      <h1 className="text-2xl font-semibold mb-4">My Services</h1>
+    <div className="p-4 w-11/12 mx-auto">
+      <h1 className="text-3xl  mb-4 text-center font-bold">My Services</h1>
 
       {loading ? (
-        <div className="min-h-[40vh] flex items-center justify-center">
-          <span className="loading loading-spinner text-info"></span>
+        <div className="flex justify-center items-center mt-12">
+          <div className="loader border-t-4 border-blue-600 border-solid rounded-full w-12 h-12 animate-spin"></div>
         </div>
       ) : services.length === 0 ? (
         <div className="text-center py-12">

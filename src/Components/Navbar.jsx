@@ -1,4 +1,4 @@
-import React, { use } from 'react';
+import React, { use, useEffect, useState } from 'react';
 import { Link, Navigate, NavLink } from 'react-router';
 import { Leaf } from 'lucide-react';
 import { AuthContext } from '../Provider/AuthProvider';
@@ -11,13 +11,25 @@ const MotionLink = motion(Link);
 
 const Navbar = () => {
     const { user, logOut } = use(AuthContext)
-    const loginTime = localStorage.getItem("loginTime");
+    // const loginTime = localStorage.getItem("loginTime");
+    
+    // Theme Toggling
+    const [theme, setTheme] = useState(
+        localStorage.getItem("theme") || "light"
+    );
+    useEffect(() => {
+        document.documentElement.setAttribute("data-theme", theme);
+        localStorage.setItem("theme", theme);
+    }, [theme]);
 
-    console.log(logOut)
+    const handleThemeToggle = () => {
+        setTheme(theme === "light" ? "dark" : "light");
+    };
+
     const handleLogout = () => {
         logOut()
             .then(() => {
-                localStorage.removeItem("loginTime");
+                // localStorage.removeItem("loginTime");
                 toast.success("You Logged Out successfully");
             })
             .catch((error) => {
@@ -77,7 +89,14 @@ const Navbar = () => {
                                             My Bookings
                                         </NavLink>
                                     </li>
-                                    <li>1</li>
+                                    <li>
+                                        <NavLink to="/my-services"
+                                            className={({ isActive }) =>
+                                                isActive ? 'text-green-600 border-b-2 border-green-600 pb-1' : ''
+                                            }>
+                                            My Services
+                                        </NavLink>
+                                    </li>
                                     <li>
                                         <NavLink to="/auth/profile"
                                             className={({ isActive }) =>
@@ -147,7 +166,7 @@ const Navbar = () => {
                                     </NavLink>
                                 </li>
 
-                                <li>1</li>
+
                                 <li>
                                     <NavLink to="/my-profile"
                                         className={({ isActive }) =>
@@ -188,11 +207,19 @@ const Navbar = () => {
                             <li className="text-center font-semibold text-gray-700 py-1">
                                 {user?.email || 'User'}
                             </li>
-                            
-                            <li className="text-center text-sm text-gray-500 py-1">
+
+                            {/* <li className="text-center text-sm text-gray-500 py-1">
                                 Login: {loginTime || 'Unknown'}
-                            </li>
+                            </li> */}
                             <div className="divider my-1"></div>
+                            <li className="flex justify-center items-center py-2">
+                                <input
+                                    type="checkbox"
+                                    checked={theme === "dark"}
+                                    onChange={handleThemeToggle}
+                                    className="toggle p-1 toggle-success bg-gray-300 border-gray-400 checked:bg-indigo-600 checked:border-indigo-600 transition-all duration-300 scale-110"
+                                />
+                            </li>
                             <li>
                                 <button
                                     onClick={handleLogout}
@@ -226,6 +253,7 @@ const Navbar = () => {
                             type="checkbox"
                             value="synthwave"
                             className="toggle theme-controller ml-2"
+                            onChange={handleThemeToggle}
                         />
                     </div>
                 )}

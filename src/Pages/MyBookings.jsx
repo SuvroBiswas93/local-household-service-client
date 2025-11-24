@@ -59,13 +59,15 @@ const MyBookings = () => {
 
  if (loading) {
   return (
-    <span className="loading flex justify-center items-center min-h-[85vh] mx-auto loading-spinner text-info"></span>
+    <div className="flex justify-center items-center mt-12">
+          <div className="loader border-t-4 border-blue-600 border-solid rounded-full w-12 h-12 animate-spin"></div>
+        </div>
   );
 }
 
 
   return (
-    <div className="max-w-6xl mx-auto p-6">
+    <div className="w-11/12 mx-auto p-6">
       <h1 className="text-2xl md:text-3xl font-bold mb-6 text-center">
         My Bookings
       </h1>

@@ -42,7 +42,7 @@ const Footer = () => {
                             </li>
 
                             <li>
-                                <Link to="/auth/profile" className="text-gray-400 hover:text-blue-400 transition">
+                                <Link to="/my-profile" className="text-gray-400 hover:text-blue-400 transition">
                                     My Profile
                                 </Link>
                             </li>
