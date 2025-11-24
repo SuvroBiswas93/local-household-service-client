@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useRouteError } from 'react-router';
-import errorPageImg from '../assets/error-404.png'
+import errorPageImg from '../assets/errorPageImg.jpg'
 import Navbar from '../Components/Navbar';
 import Footer from '../Components/Footer';
 
@@ -19,7 +19,7 @@ const ErrorPage = () => {
                     </p>
                     <Link to='/'
 
-                        className="btn bg-green-500 hover:green-800 text-white border-none"
+                        className="btn bg-green-500 hover:bg-green-800 text-white border-none"
                     >
                         Go Back !
 

@@ -12,6 +12,7 @@ import ServiceDetails from "../Pages/ServiceDetails";
 import MyBookings from "../Pages/MyBookings";
 import MyServices from "../Pages/MyServices";
 import ErrorPage from "../Pages/ErrorPage";
+import MyProfile from "../Pages/MyProfile";
 
 export const router = createBrowserRouter([
   {
@@ -55,6 +56,12 @@ export const router = createBrowserRouter([
         element:<PrivateRoute>
           <MyServices></MyServices>
         </PrivateRoute>
+      },
+      {
+        path:'/my-profile',
+        element:<PrivateRoute>
+          <MyProfile></MyProfile>
+        </PrivateRoute>,
       }
     ]
   },

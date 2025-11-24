@@ -149,7 +149,7 @@ const Navbar = () => {
 
                                 <li>1</li>
                                 <li>
-                                    <NavLink to="/auth/profile"
+                                    <NavLink to="/my-profile"
                                         className={({ isActive }) =>
                                             isActive ? 'text-green-600 border-b-2 border-green-600 pb-1' : ''
                                         }>

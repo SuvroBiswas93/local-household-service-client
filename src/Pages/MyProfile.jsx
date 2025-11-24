@@ -1,0 +1,104 @@
+import React, { useState } from "react";
+import { toast } from "react-toastify";
+import { use } from "react";
+import { AuthContext } from "../Provider/AuthProvider";
+
+const MyProfile = () => {
+    const { user, updateUser, setUser } = use(AuthContext);
+    const [name, setName] = useState(user?.displayName || "");
+    const [photo, setPhoto] = useState(user?.photoURL || "");
+    const [editing, setEditing] = useState(false);
+    const [loading, setLoading] = useState(false);
+
+    const handleUpdate = async (e) => {
+        e.preventDefault();
+        setLoading(true);
+
+        try {
+            await updateUser({ displayName: name, photoURL: photo });
+            setUser({ ...user, displayName: name, photoURL: photo });
+            toast.success("Profile updated successfully!");
+            setEditing(false);
+        } catch (error) {
+            toast.error( error.message);
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    return (
+        <div className="flex flex-col items-center justify-center min-h-screen bg-linear-to-br from-green-50 to-emerald-50 p-4">
+            <div className="bg-white rounded-2xl shadow-lg p-8 w-full max-w-md border border-green-100 text-center">
+                <h2 className="text-2xl font-semibold text-green-700 mb-6">My Profile</h2>
+
+                <img
+                    src={user?.photoURL || "https://via.placeholder.com/150"}
+                    alt="Profile"
+                    className="w-32 h-32 rounded-full object-cover mx-auto border-4 border-green-200 mb-4"
+                />
+
+                {!editing ? (
+                    <>
+                        <p className="text-lg font-medium text-gray-700 mb-2">
+                            Name: {user?.displayName || "No name set"}
+                        </p>
+                        <p className="text-gray-600 mb-6">Email: {user?.email}</p>
+                        <button
+                            onClick={() => setEditing(true)}
+                            className="bg-linear-to-r from-green-600 cursor-pointer to-emerald-600 text-white px-6 py-2 rounded-lg font-semibold hover:from-green-700 hover:to-emerald-700 transition"
+                        >
+                            Update Profile
+                        </button>
+                    </>
+                ) : (
+                    <form onSubmit={handleUpdate} className="space-y-4">
+                        <div className="text-left">
+                            <label className="block text-sm font-medium text-gray-700 mb-1">
+                                Display Name
+                            </label>
+                            <input
+                                type="text"
+                                value={name}
+                                onChange={(e) => setName(e.target.value)}
+                                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500"
+                                required
+                            />
+                        </div>
+
+                        <div className="text-left">
+                            <label className="block text-sm font-medium text-gray-700 mb-1">
+                                Photo URL
+                            </label>
+                            <input
+                                type="text"
+                                value={photo}
+                                onChange={(e) => setPhoto(e.target.value)}
+                                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500"
+                                required
+                            />
+                        </div>
+
+                        <div className="flex justify-center gap-4">
+                            <button
+                                type="button"
+                                onClick={() => setEditing(false)}
+                                className="px-5 py-2 cursor-pointer rounded-lg border bg-blue-400 text-white hover:bg-blue-500"
+                            >
+                                Cancel
+                            </button>
+                            <button
+                                type="submit"
+                                disabled={loading}
+                                className="bg-linear-to-r cursor-pointer from-green-600 to-emerald-600 text-white px-6 py-2 rounded-lg font-semibold hover:from-green-700 hover:to-emerald-700 transition disabled:opacity-50"
+                            >
+                                {loading ? "Updating..." : "Save"}
+                            </button>
+                        </div>
+                    </form>
+                )}
+            </div>
+        </div>
+    );
+};
+
+export default MyProfile;
