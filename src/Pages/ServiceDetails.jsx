@@ -180,18 +180,18 @@ const ServiceDetails = () => {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.7, opacity: 0 }}
               transition={{ type: "spring", stiffness: 120 }}
-              className="bg-white p-8 rounded-2xl w-full max-w-md shadow-xl"
+              className="bg-white p-8  bg-linear-to-r from-green-400 to-blue-400 rounded-2xl w-full max-w-md shadow-xl"
             >
               <h2 className="text-2xl font-bold mb-4 text-center">Confirm Booking</h2>
 
-              <form onSubmit={handleBooking} className="space-y-5">
+              <form onSubmit={handleBooking} className="space-y-5 ">
                 <div>
                   <label className="text-sm font-semibold">Service ID</label>
                   <input
                     type="text"
                     value={_id}
                     readOnly
-                    className="w-full bg-gray-100 px-3 py-2 border rounded"
+                    className="w-full bg-gray-100 text-black px-3 py-2  rounded"
                   />
                 </div>
 
@@ -201,7 +201,7 @@ const ServiceDetails = () => {
                     type="text"
                     value={`$${Price}`}
                     readOnly
-                    className="w-full bg-gray-100 px-3 py-2 border rounded"
+                    className="w-full bg-gray-100 text-black px-3 py-2  rounded"
                   />
                 </div>
 
@@ -211,7 +211,7 @@ const ServiceDetails = () => {
                     type="email"
                     value={user?.email}
                     readOnly
-                    className="w-full bg-gray-100 px-3 py-2 border rounded"
+                    className="w-full bg-gray-100 text-black px-3 py-2  rounded"
                   />
                 </div>
 
