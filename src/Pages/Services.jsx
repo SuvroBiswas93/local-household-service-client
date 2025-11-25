@@ -28,7 +28,7 @@ const Services = () => {
   }, [fetchServices]);
 
   return (
-    <div className="px-4 sm:px-6 lg:px-8 py-8">
+    <div className="w-11/12 mx-auto">
       {/* Filter Inputs */}
       <div className="flex flex-col sm:flex-row gap-3 items-center justify-center max-w-4xl mx-auto">
         <input

@@ -45,7 +45,7 @@ const AddService = () => {
 
     return (
         <div className=' w-11/12 mx-auto mt-6 py-4 px-4 rounded-lg '>
-            <div className="max-w-2xl mx-auto mt-6 mb-6 bg-linear-to-r from-green-400 to-blue-400 shadow-lg rounded-lg p-8">
+            <div className="max-w-2xl mx-auto mt-6 mb-6 bg-linear-to-r from-blue-400 to-green-400 shadow-lg rounded-lg p-8">
 
                 <h2 className="text-3xl font-bold text-center mb-6">Add New Service</h2>
 
@@ -97,7 +97,7 @@ const AddService = () => {
                         <input
                             type="number"
                             name='price'
-                            className="w-full border rounded-md p-2 focus:ring focus:ring-green-300"
+                            className="w-full border rounded-md p-2 focus:ring focus:ring-green-300 "
                             placeholder="Enter price"
                         />
                     </div>
@@ -106,7 +106,7 @@ const AddService = () => {
                     <div>
                         <label className="block font-semibold mb-1">Description</label>
                         <textarea
-                            className="w-full border rounded-md p-2 focus:ring focus:ring-green-300"
+                            className="w-full border rounded-md p-2 focus:ring focus:ring-green-300 "
                             name='description'
                             rows="3"
                             placeholder="Write service details"

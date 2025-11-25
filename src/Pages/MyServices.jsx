@@ -120,7 +120,7 @@ const MyServices = () => {
 
   return (
     <div className="p-4 w-11/12 mx-auto">
-      <h1 className="text-3xl  mb-4 text-center font-bold">My Services</h1>
+      <h1 className="text-3xl  mb-4 text-center font-bold text-blue-500">My Services</h1>
 
       {loading ? (
         <div className="flex justify-center items-center mt-12">
