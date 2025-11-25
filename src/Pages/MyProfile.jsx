@@ -1,14 +1,24 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { toast } from "react-toastify";
-import { use } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 
 const MyProfile = () => {
-    const { user, updateUser, setUser } = use(AuthContext);
+    const { user, updateUser, setUser } = useContext(AuthContext);
+
     const [name, setName] = useState(user?.displayName || "");
     const [photo, setPhoto] = useState(user?.photoURL || "");
     const [editing, setEditing] = useState(false);
     const [loading, setLoading] = useState(false);
+
+    const [lastLogin, setLastLogin] = useState("");
+
+    useEffect(() => {
+        // Read stored login time
+        const savedLoginTime = localStorage.getItem("lastLogin");
+        if (savedLoginTime) {
+            setLastLogin(savedLoginTime);
+        }
+    }, []);
 
     const handleUpdate = async (e) => {
         e.preventDefault();
@@ -20,7 +30,7 @@ const MyProfile = () => {
             toast.success("Profile updated successfully!");
             setEditing(false);
         } catch (error) {
-            toast.error( error.message);
+            toast.error(error.message);
         } finally {
             setLoading(false);
         }
@@ -42,7 +52,16 @@ const MyProfile = () => {
                         <p className="text-lg font-medium text-gray-700 mb-2">
                             Name: {user?.displayName || "No name set"}
                         </p>
-                        <p className="text-gray-600 mb-6">Email: {user?.email}</p>
+
+                        <p className="text-gray-700 mb-2">
+                            Email: {user?.email}
+                        </p>
+
+                        {/* ⭐ SHOW LAST LOGIN TIME */}
+                        <p className="text-gray-600 mb-6">
+                            Last Login: {lastLogin || "No login record"}
+                        </p>
+
                         <button
                             onClick={() => setEditing(true)}
                             className="bg-linear-to-r from-green-600 cursor-pointer to-emerald-600 text-white px-6 py-2 rounded-lg font-semibold hover:from-green-700 hover:to-emerald-700 transition"
@@ -52,6 +71,8 @@ const MyProfile = () => {
                     </>
                 ) : (
                     <form onSubmit={handleUpdate} className="space-y-4">
+
+                        {/* Name input */}
                         <div className="text-left">
                             <label className="block text-sm font-medium text-gray-700 mb-1">
                                 Display Name
@@ -65,6 +86,7 @@ const MyProfile = () => {
                             />
                         </div>
 
+                        {/* Photo input */}
                         <div className="text-left">
                             <label className="block text-sm font-medium text-gray-700 mb-1">
                                 Photo URL
