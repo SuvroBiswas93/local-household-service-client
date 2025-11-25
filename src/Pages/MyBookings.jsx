@@ -188,7 +188,7 @@ const MyBookings = () => {
                   </button>
                   <button
                     onClick={() => openReviewModal(booking)}
-                    className="px-4 py-2 bg-yellow-400 cursor-pointer text-white rounded-lg hover:bg-green-600 transition-all w-full"
+                    className="px-4 py-2 bg-green-400 cursor-pointer text-white rounded-lg hover:bg-green-600 transition-all w-full"
                   >
                     Add Review
                   </button>
@@ -203,7 +203,7 @@ const MyBookings = () => {
       <AnimatePresence>
         {showModal && (
           <motion.div
-            className="fixed inset-0 dark:bg-black  g-opacity-50b flex justify-center items-center z-50"
+            className="fixed inset-0 dark:bg-black  bg-opacity-50 flex justify-center items-center z-50"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
