@@ -12,7 +12,7 @@ const MotionLink = motion(Link);
 const Navbar = () => {
     const { user, logOut } = use(AuthContext)
     // const loginTime = localStorage.getItem("loginTime");
-    
+
     // Theme Toggling
     const [theme, setTheme] = useState(
         localStorage.getItem("theme") || "light"
@@ -22,8 +22,8 @@ const Navbar = () => {
         localStorage.setItem("theme", theme);
     }, [theme]);
 
-    const handleThemeToggle = () => {
-        setTheme(theme === "light" ? "dark" : "light");
+    const handleThemeToggle = (e) => {
+        setTheme(e.target.checked ? "dark" : "light");
     };
 
     const handleLogout = () => {
@@ -252,7 +252,7 @@ const Navbar = () => {
                         <input
                             type="checkbox"
                             value="synthwave"
-                            className="toggle theme-controller ml-2"
+                            className="toggle theme-controller fixed -right-0.5 top-5 z-9999"
                             onChange={handleThemeToggle}
                         />
                     </div>
