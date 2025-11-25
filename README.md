@@ -1,4 +1,4 @@
-# 🏠 Local Household Service Booking Website
+# 🏠 Local Household Service Booking Website (HomeHero)
 
 **Local Household Service Booking Website** is a modern full-stack service management and booking platform built using **React**, **Tailwind CSS**, **Firebase Authentication**, and **MongoDB**.
 It enables users to browse services, view details, book services, and manage bookings.
@@ -11,7 +11,7 @@ Service providers can add, update, and delete their own service listings through
 * ✅ Build a **responsive and user-friendly** service booking system
 * ✅ Implement **secure Firebase authentication** (Signup, Login, Google Sign-In)
 * ✅ Implement fully functional **CRUD operations** for services and bookings
-* ✅ Create private routes for sensitive pages like Add Service, My Services, My Bookings, and Profile
+* ✅ Create private routes for sensitive pages like Add Service, My Services, My Bookings, and My Profile
 * ✅ Ensure seamless SPA navigation and clean UI/UX design
 
 ---
@@ -24,20 +24,44 @@ Service providers can add, update, and delete their own service listings through
 
 #### 🔝 Navbar
 
-* **Navigation Links:**
 
-  * Home
-  * Services
-  * My Services *(Private)*
-  * Add Service *(Private)*
-  * My Bookings *(Private)*
-  * Profile *(Private)*
-* **Conditional Rendering:**
+A fully responsive, React-based navigation bar with conditional rendering, theme toggling, and smooth animations.
 
-  * **Logged In:** Shows user info + logout option
-  * **Logged Out:** Shows Login and Register buttons
-* Fully responsive, available on all pages
-* Smooth route transitions and protected navigation
+## Features
+
+- **Navigation Links**
+  - Public: Home, Services
+  - Private (requires login): My Services, Add Service, My Bookings, Profile
+
+- **User Section**
+  - Logged in: Avatar dropdown showing Name, Email, Theme toggle, Logout button
+  - Logged out: Login & Register buttons, Theme toggle
+
+- **Responsive Design**
+  - Mobile-friendly dropdown menu
+  - Desktop horizontal menu
+
+- **Theme Toggling**
+  - Light/Dark mode stored in `localStorage`
+  - Toggle available in both avatar dropdown and public view
+
+- **Animations**
+  - Smooth hover & tap effects using `motion` (Framer Motion)
+
+- **Conditional Rendering**
+  - Dynamic menu links based on authentication state from `AuthContext`
+
+- **Logout Feedback**
+  - Logout triggers a toast notification
+
+## Technologies Used
+
+- React
+- Tailwind CSS + DaisyUI
+- Framer Motion
+- React Router
+- React Toastify
+- Firebase Auth (via `AuthContext`)
 
 ---
 
@@ -201,44 +225,313 @@ On submission:
 
 ### 📑 Services Page
 
-* Displays all services in cards
-* Each includes:
+* Displays all services fetched dynamically from the backend.
+* Uses Axios to retrieve service data on component mount.
+* All services are rendered as individual cards using a reusable `ServiceCard` component.
+* Each card typically shows:
 
-  * Image
-  * Title
-  * Key information
-  * **View Details** button
+  * Service image
+  * Service title
+  * Category / price
+  * **View Details** button leading to the Service Details page
 
 ---
+
+#### 🔍 Price Filtering
+
+* Includes two input fields:
+
+  * **Min Price**
+  * **Max Price**
+
+* A button labeled **Apply Filter** allows users to reload services based on selected price range.
+
+* The request is sent with query parameters such as:
+
+  ```
+  /services?minPrice=VALUE&maxPrice=VALUE
+  ```
+
+* Filtered results instantly update the UI.
+
+---
+
+#### ⚙️ Data Fetching
+
+* Data is fetched through:
+
+  ```js
+  axios.get(...)
+  ```
+
+* A `useCallback` hook is used to prevent unnecessary re-fetching.
+
+* Fetching re-triggers whenever the user adjusts:
+
+  * `minPrice`
+  * `maxPrice`
+
+---
+
+#### ⏳ Loading State
+
+* While waiting for data, a loader/spinner is displayed:
+
+  ```
+  border-t-4 border-blue-600 ... animate-spin
+  ```
+
+* Prevents the UI from appearing empty while fetching.
+
+---
+
+#### 📭 Empty Result Handling
+
+* If no data is returned:
+
+  ```
+  No services found.
+  ```
+
+  is shown centered on the page.
+
+---
+
+#### 🧱 Responsive Grid Layout
+
+* Services are displayed in a responsive card grid:
+
+  * 1 column on mobile
+  * 2 on small devices
+  * 3–4 on desktop
+
+This ensures a clean layout across all screen sizes.
+
+---
+
+### 🧠 Technologies Used in This Page
+
+| Purpose           | Library                          |
+| ----------------- | -------------------------------- |
+| Data Fetching     | Axios                            |
+| State & Lifecycle | React Hooks                      |
+| UI Rendering      | Reusable `ServiceCard` component |
+| Styling           | Tailwind CSS                     |
+
+---
+
+This design allows users to easily browse, filter, and navigate through services while maintaining smooth and modern UI behavior.
+
 
 ### 🔍 Service Details Page
 
-* Displays complete service info
-* Includes:
+* Displays full detailed information of a single service, including:
 
-  * **Book Now** button
-* Clicking opens booking modal with:
-
-  * User email *(read-only from auth)*
-  * Booking date
+  * Service name
+  * Image
+  * Category
+  * Provider name and email
+  * Created by & created date
   * Price
-  * Service ID
-* On success:
+  * Description
 
-  * Booking stored in database
+* The page uses **Framer Motion** for smooth entrance animations and transitions.
 
 ---
+
+#### ⭐ Review Display
+
+* If the service has reviews, they are shown in a clean, scrollable list.
+* Each review displays:
+
+  * Reviewer email
+  * Star rating (1–5)
+  * Comment (if provided)
+  * Review date
+* Reviews appear automatically once added from the **My Bookings** page.
+
+---
+
+#### 🧠 Booking Restrictions
+
+The “Book Now” button is intelligently controlled:
+
+* If user is **not logged in**
+  → Toast message: *“Please login to book!”*
+
+* If the logged-in user **is the owner of the service**
+  → Button disabled and displays:
+  `Owner (Can't Book)`
+
+* If the user has **already booked this service**
+  → Button changes to:
+  `Already Booked`
+
+This prevents duplicate or invalid bookings.
+
+---
+
+#### 🧾 Booking Modal (When Book Now is clicked)
+
+The booking form opens in an animated modal using **AnimatePresence**, and contains:
+
+* **Service ID** *(read-only)*
+* **Price** *(read-only)*
+* **User email** *(auto-filled from Firebase auth, not editable)*
+* **Booking Date** *(required)*
+
+---
+
+#### 📨 On Booking Submission
+
+* Sends a POST request to:
+
+  ```
+  /bookings
+  ```
+
+* Data stored includes:
+
+  * `serviceId`
+  * `bookingDate`
+  * `price`
+  * `Service name`
+  * `userEmail`
+
+* On success:
+
+  * Toast notification: *“Booking Successful!”*
+  * Modal closes
+  * User is redirected to:
+
+    ```
+    /my-bookings
+    ```
+
+* On failure:
+
+  * Displays appropriate error message via toast.
+
+---
+
+#### 🎨 UI & Experience
+
+* Fully responsive design
+* Uses:
+
+  * **Framer Motion** for animated layout transitions
+  * **Tailwind CSS** for modern styling
+  * **React Icons / Lucide-React** for iconography
+
+This ensures a clean and smooth user experience throughout the booking process.
+
 
 ### 📦 My Bookings Page (Private Route)
 
-* Shows all bookings made by the authenticated user
-* Displayed in table format
-* Includes:
+* Displays all bookings made by the currently authenticated user.
+* If no bookings exist, the user is shown a helpful message:
 
-  * **Cancel Booking** button
-* Deleting removes the booking from database and UI
+  ```
+  You have no bookings.
+  ```
+* Bookings are shown responsively in:
+
+  * **Table layout (desktop)**
+  * **Animated cards (mobile)** using Framer Motion
+* Each booking record includes:
+
+  * Service name
+  * Service ID
+  * Booking date
+  * Price
+  * Action buttons
 
 ---
+
+#### ❌ Cancel Booking
+
+* Clicking **Cancel Booking** opens a confirmation popup using **SweetAlert2**.
+* On confirmation:
+
+  * A DELETE request is sent to the server:
+
+    ```
+    /bookings/:id
+    ```
+  * If successful:
+
+    * The booking is removed from both the database and the UI immediately.
+    * A toast or alert confirms successful cancellation.
+
+---
+
+#### ⭐ Add Review
+
+* Each booking includes an **Add Review** button.
+* Clicking opens an animated modal using:
+
+  * `AnimatePresence`
+  * `motion` from Framer Motion
+
+Inside the modal, users can:
+
+* Select a rating (1–5 stars)
+* Write an optional comment
+
+On submitting:
+
+* A POST request is sent to:
+
+  ```
+  /services/:serviceId/reviews
+  ```
+* The payload includes:
+
+  * `rating`
+  * `comment`
+  * `userEmail` (from Firebase auth)
+* A success toast is displayed.
+* Modal closes automatically after submission.
+
+---
+
+#### 📝 Review Visibility
+
+* Once a review is submitted:
+
+  * It is stored inside the specific service’s `reviews` array in MongoDB.
+  * The review is displayed on the **Service Details Page**, where users can see:
+
+    * The rating
+    * Comment
+    * Reviewer email
+
+This provides a fully integrated and user-friendly feedback system.
+
+---
+
+#### ✨ Additional Experience Details
+
+* Smooth animation is applied to both:
+
+  * Modal appearance/disappearance
+  * Mobile card transitions
+* Fully responsive layout for all screen sizes.
+* Toast and alert notifications guide the user through all interactions.
+
+---
+
+### 🧠 Technologies Used in This Page
+
+| Purpose                 | Library                         |
+| ----------------------- | ------------------------------- |
+| Authentication          | Firebase Auth + Context         |
+| API Calls               | Axios                           |
+| Alerts & Confirmation   | SweetAlert2                     |
+| Notifications           | React Toastify                  |
+| Animation & Transitions | Framer Motion / AnimatePresence |
+| UI & Styling            | Tailwind CSS                    |
+
 
 ## 🗄️ Database Structure
 
