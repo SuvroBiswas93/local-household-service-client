@@ -28,7 +28,7 @@ const Services = () => {
   }, [fetchServices]);
 
   return (
-    <div className="w-11/12 mx-auto">
+    <div className="w-11/12 mx-auto mt-5">
       {/* Filter Inputs */}
       <div className="flex flex-col sm:flex-row gap-3 items-center justify-center max-w-4xl mx-auto">
         <input

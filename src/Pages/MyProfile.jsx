@@ -38,7 +38,7 @@ const MyProfile = () => {
 
     return (
         <div className="flex flex-col items-center justify-center min-h-screen p-4">
-            <div className="bg-white rounded-2xl shadow-lg p-8 w-full max-w-md border bg-linear-to-r from-green-400 to-blue-400 border-green-100 text-center">
+            <div className="bg-white rounded-2xl shadow-lg p-8 w-full max-w-md border  border-blue-50 text-center">
                 <h2 className="text-2xl font-semibold text-green-700 mb-6">My Profile</h2>
 
                 <img

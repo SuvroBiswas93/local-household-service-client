@@ -156,7 +156,7 @@ const MyServices = () => {
                     <div className="text-sm text-gray-700">{s.Category || "-"}</div>
                   </td>
                   <td className="px-4 py-4">
-                    <div className="text-sm font-semibold">${s.Price ?? "-"}</div>
+                    <div className="text-sm font-semibold text-green-500">${s.Price ?? "-"}</div>
                   </td>
                   <td className="px-4 py-4 hidden md:table-cell">
                     <div className="text-sm text-gray-600 line-clamp-2">{s.Description}</div>
@@ -201,7 +201,7 @@ const MyServices = () => {
               exit={{ y: 20, scale: 0.98 }}
               className="relative bg-white rounded-lg shadow-xl max-w-2xl w-full p-6 z-10"
             >
-              <h2 className="text-lg font-semibold mb-4 dark:text-black">Edit Service</h2>
+              <h2 className="text-lg font-semibold mb-4 text-blue-400">Edit Service</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                 <div>
                   <label className="block text-xs font-semibold text-gray-600">Service Title</label>

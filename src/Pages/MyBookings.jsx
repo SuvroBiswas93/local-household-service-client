@@ -209,7 +209,7 @@ const MyBookings = () => {
             exit={{ opacity: 0 }}
           >
             <motion.div
-              className="bg-white dark:bg-gray-800 bg-linear-to-r from-green-400 to-blue-400  rounded-lg p-6 w-11/12 max-w-md"
+              className="bg-white rounded-lg p-6 w-11/12 max-w-md"
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.8, opacity: 0 }}
