@@ -48,7 +48,7 @@ const WhyChooseUs = () => {
 
         {/* FAST Title Animation */}
         <motion.h2
-          className="text-3xl font-bold text-gray-800 mb-4"
+          className="text-3xl font-bold text-blue-500 mb-4"
           initial={{ opacity: 0, y: -15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3 }}

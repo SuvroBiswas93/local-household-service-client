@@ -49,7 +49,7 @@ const Login = () => {
         }
     }
     return (
-        <div className="min-h-screen flex items-center justify-center bg-linear-to-r from-green-100 to-emerald-100 px-6">
+        <div className="min-h-screen flex items-center justify-center bg-linear-to-r from-green-100 to-emerald-100 px-6 rounded-md">
             <div className="w-full max-w-5xl grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
 
                 {/* LEFT — Login Form */}

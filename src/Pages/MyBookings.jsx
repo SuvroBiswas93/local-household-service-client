@@ -203,7 +203,7 @@ const MyBookings = () => {
       <AnimatePresence>
         {showModal && (
           <motion.div
-            className="fixed inset-0 dark:bg-black  bg-opacity-50 flex justify-center items-center z-50"
+            className="fixed inset-0 dark:bg-black  g-opacity-50b flex justify-center items-center z-50"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}

@@ -16,7 +16,7 @@ const TopServices = () => {
 
   return (
     <div className=" w-11/12 mx-auto py-8">
-      <h2 className="text-3xl font-bold text-center text-blue-700 mb-8">
+      <h2 className="text-3xl font-bold text-center text-blue-500 mb-8">
         Top Rated Services
       </h2>
 
