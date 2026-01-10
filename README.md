@@ -6,6 +6,22 @@ Service providers can add, update, and delete their own service listings through
 
 ---
 
+---
+
+## 🔗 Live Project & Source Code
+
+🌐 **Live Website:**  
+👉 https://home-hero-clean.netlify.app/
+
+💻 **Client Repository:**  
+👉 https://github.com/SuvroBiswas93/local-household-service-client
+
+🛠️ **Server Repository:**  
+👉 https://github.com/SuvroBiswas93/local-household-service-server
+
+---
+
+
 ## 🎯 Project Goals
 
 * ✅ Build a **responsive and user-friendly** service booking system
