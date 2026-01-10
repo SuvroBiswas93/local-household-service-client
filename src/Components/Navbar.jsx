@@ -1,8 +1,6 @@
 import React, { use, useEffect, useState } from 'react';
 import { Link, Navigate, NavLink } from 'react-router';
-import { Leaf } from 'lucide-react';
 import { AuthContext } from '../Provider/AuthProvider';
-import { User } from 'lucide-react';
 import { toast } from 'react-toastify';
 import logo from '../../public/HomeHero.webp'
 import { motion } from "motion/react";
@@ -37,7 +35,7 @@ const Navbar = () => {
             });
     }
     return (
-        <div className="navbar bg-base-100 shadow-sm">
+        <div className="navbar bg-base-100 shadow-sm fixed top-0 left-0 w-full z-50">
             <div className="w-11/12 mx-auto flex justify-between items-center">
                 {/* Left section (Logo + Dropdown) */}
                 <div className="flex items-center gap-1 shrink-0 ">

@@ -57,7 +57,7 @@ const MyProfile = () => {
                             Email: {user?.email}
                         </p>
 
-                        {/* ⭐ SHOW LAST LOGIN TIME */}
+                        {/*  SHOW LAST LOGIN TIME */}
                         <p className="text-gray-600 mb-6">
                             Last Login: {lastLogin || "No login record"}
                         </p>

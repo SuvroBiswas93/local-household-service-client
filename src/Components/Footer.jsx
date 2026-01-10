@@ -3,8 +3,6 @@ import { Leaf, Facebook, MessageCircleHeart, Instagram, Mail, Phone, MapPin } fr
 import logo from '../../public/HomeHero.webp'
 import { FaXTwitter } from "react-icons/fa6";
 
-
-
 const Footer = () => {
     const currentYear = new Date().getFullYear()
     return (
