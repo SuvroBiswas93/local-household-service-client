@@ -16,7 +16,7 @@ const ScrollToTopCTA = () => {
       animate={{ opacity: 1, scale: 1 }}
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.95 }}
-      className="fixed bottom-6 cursor-pointer right-6 z-50 flex items-center gap-2 rounded-full bg-gradient-to-r from-indigo-600 via-purple-600 to-blue-600 px-5 py-3 text-sm font-semibold text-white shadow-lg backdrop-blur-md hover:shadow-xl focus:outline-none"
+      className="fixed bottom-6 cursor-pointer right-6 z-50 flex items-center gap-2 rounded-full bg-gradient-to-r from-blue-900 to-teal-500 px-5 py-3 text-sm font-semibold text-white shadow-lg backdrop-blur-md hover:shadow-xl focus:outline-none"
       aria-label="Scroll to top"
     >
       <ArrowUp size={18} />

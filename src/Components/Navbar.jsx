@@ -55,7 +55,7 @@ const Navbar = () => {
                             <li>
                                 <NavLink to="/" end
                                     className={({ isActive }) =>
-                                        isActive ? 'text-green-600 font-semibold' : ''
+                                        isActive ? 'text-teal-500 font-semibold' : ''
                                     }>
                                     Home
                                 </NavLink>
@@ -63,7 +63,7 @@ const Navbar = () => {
                             <li>
                                 <NavLink to="/services"
                                     className={({ isActive }) =>
-                                        isActive ? 'text-green-600 font-semibold' : ''
+                                        isActive ? 'text-teal-500 font-semibold' : ''
                                     }>
                                     Service List
                                 </NavLink>
@@ -74,7 +74,7 @@ const Navbar = () => {
                                     <li>
                                         <NavLink to="/add-service"
                                             className={({ isActive }) =>
-                                                isActive ? 'text-green-600 border-b-2 border-green-600 pb-1' : ''
+                                                isActive ? 'text-teal-500 border-b-2 border-teal-600 pb-1' : ''
                                             }>
                                             Add Services
                                         </NavLink>
@@ -82,7 +82,7 @@ const Navbar = () => {
                                     <li>
                                         <NavLink to="/my-bookings"
                                             className={({ isActive }) =>
-                                                isActive ? 'text-green-600 border-b-2 border-green-600 pb-1' : ''
+                                                isActive ? 'text-teal-500 border-b-2 border-teal-600 pb-1' : ''
                                             }>
                                             My Bookings
                                         </NavLink>
@@ -90,7 +90,7 @@ const Navbar = () => {
                                     <li>
                                         <NavLink to="/my-services"
                                             className={({ isActive }) =>
-                                                isActive ? 'text-green-600 border-b-2 border-green-600 pb-1' : ''
+                                                isActive ? 'text-teal-500 border-b-2 border-teal-600 pb-1' : ''
                                             }>
                                             My Services
                                         </NavLink>
@@ -98,7 +98,7 @@ const Navbar = () => {
                                     <li>
                                         <NavLink to="/my-profile"
                                             className={({ isActive }) =>
-                                                isActive ? 'text-green-600 font-semibold' : ''
+                                                isActive ? 'text-teal-500 font-semibold' : ''
                                             }>
                                             My Profile
                                         </NavLink>
@@ -109,9 +109,18 @@ const Navbar = () => {
                     </div>
 
                     {/* Logo */}
-                    <Link to="/" className="text-green-600 flex items-center text-xl font-bold">
-                        <img src={logo} alt="Logo" className="w-10 h-10 mr-1" /> Home<span className='text-blue-400'>Hero</span>
-                    </Link>
+                    <MotionLink
+                        to="/"
+                        className="flex items-center text-xl font-bold bg-linear-to-r from-blue-900 to-teal-500 bg-clip-text text-transparent"
+                        whileHover={{ scale: 1.1 }}   // Slightly enlarge on hover
+                        whileTap={{ scale: 0.95 }}    // Small tap effect
+                        initial={{ opacity: 0, y: -10 }} // Fade in from above
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ type: "spring", stiffness: 150, damping: 15 }} // Smooth spring motion
+                    >
+                        <img src={logo} alt="Logo" className="w-10 h-10 mr-1" />
+                        <span>HomeHero</span>
+                    </MotionLink>
                 </div>
 
                 {/* Center menu (Desktop only) */}
@@ -120,7 +129,7 @@ const Navbar = () => {
                         <li>
                             <NavLink to="/" end
                                 className={({ isActive }) =>
-                                    isActive ? 'text-green-600 border-b-2 border-green-600 pb-1' : ''
+                                    isActive ? 'text-teal-500 border-b-2 border-teal-600 pb-1' : ''
                                 }>
                                 Home
                             </NavLink>
@@ -128,7 +137,7 @@ const Navbar = () => {
                         <li>
                             <NavLink to="/services"
                                 className={({ isActive }) =>
-                                    isActive ? 'text-green-600 border-b-2 border-green-600 pb-1' : ''
+                                    isActive ? 'text-teal-500 border-b-2 border-teal-600 pb-1' : ''
                                 }>
                                 Service List
                             </NavLink>
@@ -142,7 +151,7 @@ const Navbar = () => {
                                 <li>
                                     <NavLink to="/add-service"
                                         className={({ isActive }) =>
-                                            isActive ? 'text-green-600 border-b-2 border-green-600 pb-1' : ''
+                                            isActive ? 'text-teal-500 border-b-2 border-teal-600 pb-1' : ''
                                         }>
                                         Add Services
                                     </NavLink>
@@ -150,7 +159,7 @@ const Navbar = () => {
                                 <li>
                                     <NavLink to="/my-bookings"
                                         className={({ isActive }) =>
-                                            isActive ? 'text-green-600 border-b-2 border-green-600 pb-1' : ''
+                                            isActive ? 'text-teal-500 border-b-2 border-teal-600 pb-1' : ''
                                         }>
                                         My Bookings
                                     </NavLink>
@@ -158,7 +167,7 @@ const Navbar = () => {
                                 <li>
                                     <NavLink to="/my-services"
                                         className={({ isActive }) =>
-                                            isActive ? 'text-green-600 border-b-2 border-green-600 pb-1' : ''
+                                            isActive ? 'text-teal-500 border-b-2 border-teal-600 pb-1' : ''
                                         }>
                                         My Services
                                     </NavLink>
@@ -168,7 +177,7 @@ const Navbar = () => {
                                 <li>
                                     <NavLink to="/my-profile"
                                         className={({ isActive }) =>
-                                            isActive ? 'text-green-600 border-b-2 border-green-600 pb-1' : ''
+                                            isActive ? 'text-teal-500 border-b-2 border-teal-600 pb-1' : ''
                                         }>
                                         My Profile
                                     </NavLink>

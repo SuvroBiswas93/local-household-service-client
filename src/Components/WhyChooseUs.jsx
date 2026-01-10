@@ -44,11 +44,11 @@ const WhyChooseUs = () => {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.3 }} // FAST, no delay
     >
-      <div className="max-w-6xl mx-auto text-center">
+      <div className="w-11/12 mx-auto text-center">
 
         {/* FAST Title Animation */}
         <motion.h2
-          className="text-3xl font-bold text-blue-500 mb-4"
+          className="text-3xl font-bold text-teal-500 mb-4"
           initial={{ opacity: 0, y: -15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3 }}
