@@ -582,10 +582,12 @@ This provides a fully integrated and user-friendly feedback system.
 | **Authentication**     | Firebase                     |
 | **Database**           | MongoDB                      |
 | **HTTP Requests**      | Axios                        |
+| **Forms & Validation** | React Hook Form               |
 | **Notifications**      | React Toastify / SweetAlert2 |
 | **Slider**             | Swiper                       |
 | **Build Tool**         | Vite                         |
 | **Linting**            | ESLint                       |
+
 
 ---
 

@@ -1,78 +1,91 @@
-import React, { use } from 'react';
+import React, { useContext } from 'react';
+import { useForm } from 'react-hook-form';
 import { AuthContext } from '../Provider/AuthProvider';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router';
 
 const AddService = () => {
-    const{ user } = use(AuthContext)
-    const navigate = useNavigate()
-    const handleAddService = (e) => {
-        e.preventDefault()
+    const { user } = useContext(AuthContext);
+    const navigate = useNavigate();
 
+    const {
+        register,
+        handleSubmit,
+        reset,
+        formState: { errors, isSubmitting }
+    } = useForm();
+
+    const onSubmit = async (data) => {
         const formData = {
-            Service: e.target.serviceName.value,
-            Category: e.target.category.value,
-            Price: parseInt(e.target.price.value),
-            Description: e.target.description.value,
-            Image: e.target.image.value,
-            Provider: e.target.provider.value,
-            Email: e.target.email.value,
+            Service: data.serviceName,
+            Category: data.category,
+            Price: parseInt(data.price),
+            Description: data.description,
+            Image: data.image,
+            Provider: data.provider,
+            Email: data.email,
             providerEmail: user?.email,
             created_At: new Date(),
-            created_By:user?.email || 'Anonymous'
+            created_By: user?.email || 'Anonymous',
+        };
 
+        try {
+            const res = await fetch(
+                'https://local-household-service-server.vercel.app/services',
+                {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(formData),
+                }
+            );
+
+            const result = await res.json();
+
+            if (res.ok) {
+                toast.success('Service Created Successfully!');
+                reset();
+                navigate('/services');
+            } else {
+                throw new Error(result.message || 'Failed to create service');
+            }
+        } catch (error) {
+            toast.error(error.message || 'Something went wrong');
         }
-        console.log(formData)
-        fetch('https://local-household-service-server.vercel.app/services',{
-            method:'POST',
-            headers:{
-                'Content-Type':'application/json'
-            },
-            body:JSON.stringify(formData)
-        })
-        .then(res=>res.json())
-        .then(data=>{
-            console.log(data)
-            toast.success('Services Created Succefully!!')
-            e.target.reset()
-            navigate('/services')
-        })
-        .catch(err=>{
-            console.log(err)
-            toast.error(err.message || 'Something Went Wrong');
-        })
-    }
+    };
 
     return (
-        <div className=' w-11/12 mx-auto mt-6 py-4 px-4 rounded-lg '>
-            <div className="max-w-2xl mx-auto mt-6 mb-6 dark:outline border shadow-lg border-blue-50 rounded-lg p-8">
+        <div className="w-11/12 mx-auto mt-6 py-4 px-4 rounded-lg">
+            <div className="max-w-2xl mx-auto mt-6 mb-6 border shadow-lg border-blue-50 rounded-lg p-8">
 
-                <h2 className="text-3xl font-bold text-center mb-6">Add New Service</h2>
+                <h2 className="text-3xl font-bold text-center mb-6">
+                    Add New Service
+                </h2>
 
-                <form 
-                onSubmit={handleAddService}
-                className="space-y-5 ">
+                <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
+
                     {/* Service Name */}
                     <div>
                         <label className="label font-medium">Service Name</label>
                         <input
                             type="text"
-                            name="serviceName"
-                            required
+                            {...register('serviceName', { required: 'Service name is required' })}
                             placeholder="Enter Service Name"
-                            className="input w-full rounded-full focus:border-0 focus:outline-gray-200 p-3"
+                            className="input w-full rounded-full p-3"
                         />
+                        {errors.serviceName && (
+                            <p className="text-red-500 text-sm mt-1">
+                                {errors.serviceName.message}
+                            </p>
+                        )}
                     </div>
-
 
                     {/* Category */}
                     <div>
                         <label className="label font-medium">Category</label>
                         <select
-                            defaultValue={""}
-                            name='category'
-                            required
-                            className="select w-full rounded-full focus:border-0 focus:outline-gray-200"
+                            {...register('category', { required: 'Category is required' })}
+                            defaultValue=""
+                            className="select w-full rounded-full"
                         >
                             <option value="" disabled>
                                 Select Category
@@ -86,31 +99,50 @@ const AddService = () => {
                             <option value="Carpentry">Carpentry</option>
                             <option value="Pest Control">Pest Control</option>
                             <option value="AC Service">AC Service</option>
-                            <option value="TV & Computer Repair">TV & Computer Repair</option>
+                            <option value="TV & Computer Repair">
+                                TV & Computer Repair
+                            </option>
                         </select>
+                        {errors.category && (
+                            <p className="text-red-500 text-sm mt-1">
+                                {errors.category.message}
+                            </p>
+                        )}
                     </div>
-
 
                     {/* Price */}
                     <div>
                         <label className="block font-semibold mb-1">Price</label>
                         <input
                             type="number"
-                            name='price'
-                            className="w-full border rounded-md p-2 focus:ring focus:ring-green-300 "
+                            {...register('price', {
+                                required: 'Price is required',
+                                min: { value: 1, message: 'Price must be greater than 0' },
+                            })}
+                            className="w-full border rounded-md p-2"
                             placeholder="Enter price"
                         />
+                        {errors.price && (
+                            <p className="text-red-500 text-sm mt-1">
+                                {errors.price.message}
+                            </p>
+                        )}
                     </div>
 
                     {/* Description */}
                     <div>
                         <label className="block font-semibold mb-1">Description</label>
                         <textarea
-                            className="w-full border rounded-md p-2 focus:ring focus:ring-green-300 "
-                            name='description'
+                            {...register('description', { required: 'Description is required' })}
+                            className="w-full border rounded-md p-2"
                             rows="3"
                             placeholder="Write service details"
                         ></textarea>
+                        {errors.description && (
+                            <p className="text-red-500 text-sm mt-1">
+                                {errors.description.message}
+                            </p>
+                        )}
                     </div>
 
                     {/* Image URL */}
@@ -118,10 +150,15 @@ const AddService = () => {
                         <label className="block font-semibold mb-1">Image URL</label>
                         <input
                             type="text"
-                            name='image'
-                            className="w-full border rounded-md p-2 focus:ring focus:ring-green-300"
+                            {...register('image', { required: 'Image URL is required' })}
+                            className="w-full border rounded-md p-2"
                             placeholder="https://example.com/photo.jpg"
                         />
+                        {errors.image && (
+                            <p className="text-red-500 text-sm mt-1">
+                                {errors.image.message}
+                            </p>
+                        )}
                     </div>
 
                     {/* Provider Name */}
@@ -129,10 +166,15 @@ const AddService = () => {
                         <label className="block font-semibold mb-1">Provider Name</label>
                         <input
                             type="text"
-                            name='provider'
-                            className="w-full border rounded-md p-2 focus:ring focus:ring-green-300"
+                            {...register('provider', { required: 'Provider name is required' })}
+                            className="w-full border rounded-md p-2"
                             placeholder="Enter your name"
                         />
+                        {errors.provider && (
+                            <p className="text-red-500 text-sm mt-1">
+                                {errors.provider.message}
+                            </p>
+                        )}
                     </div>
 
                     {/* Email */}
@@ -140,15 +182,24 @@ const AddService = () => {
                         <label className="block font-semibold mb-1">Email</label>
                         <input
                             type="email"
-                            name='email'
-                            className="w-full border rounded-md p-2 focus:ring focus:ring-green-300"
+                            defaultValue={user?.email}
+                            {...register('email', { required: 'Email is required' })}
+                            className="w-full border rounded-md p-2"
                             placeholder="Enter email"
                         />
+                        {errors.email && (
+                            <p className="text-red-500 text-sm mt-1">
+                                {errors.email.message}
+                            </p>
+                        )}
                     </div>
 
                     {/* Submit Button */}
-                    <button className="w-full bg-green-600 text-white py-2 cursor-pointer rounded-md font-semibold hover:bg-green-700">
-                        Add Service
+                    <button
+                        disabled={isSubmitting}
+                        className="w-full bg-teal-600 text-white py-2 rounded-md font-semibold hover:bg-teal-700 disabled:opacity-70"
+                    >
+                        {isSubmitting ? 'Submitting...' : 'Add Service'}
                     </button>
                 </form>
             </div>
