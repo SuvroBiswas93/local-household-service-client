@@ -15,12 +15,12 @@ const PrivacyPolicy = () => {
       </div>
 
       {/* Content */}
-      <div className="max-w-5xl mx-auto px-6 py-16 space-y-12">
+      <div className="w-11/12 mx-auto px-3 py-16 space-y-12">
         {/* Section */}
-        <section className="bg-white p-8 rounded-2xl shadow-sm">
+        <section className="bg-white px-8 rounded-2xl shadow-sm">
           <div className="flex items-center gap-3 mb-4">
             <UserCheck className="text-teal-500" />
-            <h2 className="text-2xl font-semibold">Information We Collect</h2>
+            <h2 className="text-2xl font-semibold text-teal-600">Information We Collect</h2>
           </div>
           <p className="text-gray-600 leading-relaxed">
             We collect personal information such as your name, email address,
@@ -34,7 +34,7 @@ const PrivacyPolicy = () => {
         <section className="bg-white p-8 rounded-2xl shadow-sm">
           <div className="flex items-center gap-3 mb-4">
             <ShieldCheck className="text-teal-500" />
-            <h2 className="text-2xl font-semibold">How We Use Your Information</h2>
+            <h2 className="text-2xl font-semibold text-teal-600">How We Use Your Information</h2>
           </div>
           <ul className="list-disc list-inside text-gray-600 space-y-2">
             <li>To process service bookings and payments</li>
@@ -48,7 +48,7 @@ const PrivacyPolicy = () => {
         <section className="bg-white p-8 rounded-2xl shadow-sm">
           <div className="flex items-center gap-3 mb-4">
             <Lock className="text-teal-500" />
-            <h2 className="text-2xl font-semibold">Data Protection & Security</h2>
+            <h2 className="text-2xl font-semibold text-teal-600">Data Protection & Security</h2>
           </div>
           <p className="text-gray-600 leading-relaxed">
             We implement industry-standard security measures to protect your
@@ -59,7 +59,7 @@ const PrivacyPolicy = () => {
 
         {/* Section */}
         <section className="bg-white p-8 rounded-2xl shadow-sm">
-          <h2 className="text-2xl font-semibold mb-4">
+          <h2 className="text-2xl font-semibold mb-4 text-teal-600">
             Sharing of Information
           </h2>
           <p className="text-gray-600 leading-relaxed">
@@ -71,7 +71,7 @@ const PrivacyPolicy = () => {
 
         {/* Section */}
         <section className="bg-white p-8 rounded-2xl shadow-sm">
-          <h2 className="text-2xl font-semibold mb-4">
+          <h2 className="text-2xl font-semibold mb-4 text-teal-600">
             Your Rights & Choices
           </h2>
           <p className="text-gray-600 leading-relaxed">
@@ -89,7 +89,7 @@ const PrivacyPolicy = () => {
             If you have any questions about this Privacy Policy, feel free to
             reach out.
           </p>
-          <p className="font-medium">support@yourwebsite.com</p>
+          <p className="font-medium">info@homehero.com</p>
         </section>
       </div>
     </div>
