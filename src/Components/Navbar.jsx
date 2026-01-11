@@ -140,7 +140,7 @@ const Navbar = () => {
                             </motion.div>
 
                             <motion.div whileHover={{ scale: 1.08 }} whileTap={{ scale: 0.95 }}>
-                                <Link to="/auth/register" className="btn btn-sm bg-blue-500 text-white">
+                                <Link to="/auth/register" className="btn btn-sm bg-teal-500 text-white">
                                     Register
                                 </Link>
                             </motion.div>

@@ -9,6 +9,7 @@ import ServiceOverview from './ServiceOverview';
 import HowItWorks from './HowItWorks';
 import AboutUs from './AboutUs';
 import ContactUs from './ContactUs';
+import TipsAndGuides from './TipsAndGuides';
 
 const Home = () => {
     return (
@@ -21,6 +22,7 @@ const Home = () => {
             <Testimonials></Testimonials>
             <FAQ />
             <AboutUs />
+            <TipsAndGuides />
             <ContactUs />
             
         </div>

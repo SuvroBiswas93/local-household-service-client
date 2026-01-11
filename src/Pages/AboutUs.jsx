@@ -29,9 +29,9 @@ const AboutUs = () => {
           className="space-y-6"
         >
           <h2 className="text-4xl font-bold text-teal-600 ">
-            About <span className="bg-gradient-to-r from-blue-900 to-teal-500 bg-clip-text text-transparent">HomeHero</span>
+            About HomeHero
           </h2>
-          <p className="text-gray-600 dark:text-white leading-relaxed">
+          <p className="text-gray-500 dark:text-white leading-relaxed">
             At HomeHero, we are dedicated to providing top-notch household services
             with convenience, reliability, and professionalism. Our goal is to make
             your home a happier, cleaner, and safer place. With a team of skilled

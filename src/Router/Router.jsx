@@ -18,6 +18,8 @@ import ContactUs from "../Pages/ContactUs";
 import ServiceOverview from "../Pages/ServiceOverview";
 import HowItWorks from "../Pages/HowItWorks";
 import AboutUs from "../Pages/AboutUs";
+import TipsAndGuides from "../Pages/TipsAndGuides";
+import PrivacyPolicy from "../Pages/PrivacyPolicy";
 
 export const router = createBrowserRouter([
   {
@@ -53,6 +55,14 @@ export const router = createBrowserRouter([
       {
         path:'/contact',
         element:<ContactUs  />
+      },
+      {
+        path:'/tips-and-guides',
+        element:<TipsAndGuides />
+      },
+      {
+        path:'/privacy-poicy',
+        element:<PrivacyPolicy />
       },
       {
         path:'/add-service',
