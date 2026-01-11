@@ -40,7 +40,7 @@ const HeroSlider = () => {
   }, [index]);
 
   return (
-    <div className="relative w-full h-[400px] md:h-[500px] overflow-hidden rounded-xl shadow-lg">
+    <div className="relative w-full h-[375px] md:h-[450px] lg:h-[480px] overflow-hidden rounded-xl shadow-lg">
       <AnimatePresence>
         <motion.div
           key={index}
@@ -85,7 +85,7 @@ const HeroSlider = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6 }}
-              className="px-6 py-3 bg-gradient-to-r from-blue-900 to-teal-500 hover:from-blue-800 hover:to-teal-600
+              className="px-6 py-4 bg-linear-to-r from-teal-500 to-blue-700 hover:from-blue-800 hover:to-teal-600
  rounded-lg font-semibold shadow-md cursor-pointer"
             >
               Explore More
