@@ -22,7 +22,7 @@ const features = [
 const FeatureCard = ({ feature }) => {
   return (
     <motion.div
-      className="bg-green-200 hover:bg-green-300 p-6 rounded-xl shadow cursor-pointer"
+      className=" p-6 rounded-xl shadow-2xl bg-white text-black cursor-pointer"
       whileHover={{ scale: 1.05, y: -5 }}
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
@@ -48,7 +48,7 @@ const WhyChooseUs = () => {
 
         {/* FAST Title Animation */}
         <motion.h2
-          className="text-3xl font-bold text-teal-500 mb-4"
+          className="text-3xl font-bold text-teal-600 mb-4"
           initial={{ opacity: 0, y: -15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3 }}

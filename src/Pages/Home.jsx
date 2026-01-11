@@ -7,6 +7,8 @@ import TopServices from './TopServices';
 import FAQ from './FAQ';
 import ServiceOverview from './ServiceOverview';
 import HowItWorks from './HowItWorks';
+import AboutUs from './AboutUs';
+import ContactUs from './ContactUs';
 
 const Home = () => {
     return (
@@ -18,6 +20,8 @@ const Home = () => {
             <WhyChooseUs></WhyChooseUs>
             <Testimonials></Testimonials>
             <FAQ />
+            <AboutUs />
+            <ContactUs />
             
         </div>
     );

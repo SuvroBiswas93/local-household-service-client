@@ -2,6 +2,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import { motion } from "framer-motion";
+import contactImage from "../assets/CONTACT_US.avif";
 
 const ContactUs = () => {
   const {
@@ -32,104 +33,135 @@ const ContactUs = () => {
   };
 
   return (
-    <div className="max-w-3xl mx-auto my-12 p-6 bg-white dark:bg-slate-800 rounded-2xl shadow-2xl">
-      <h2 className="text-3xl font-bold text-center text-teal-600  mb-8">
-        Contact Us
-      </h2>
-
-      <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
-        {/* Name */}
-        <div>
-          <label className="block text-gray-700 dark:text-gray-200 font-medium mb-2">
-            Name
-          </label>
-          <input
-            type="text"
-            {...register("name", { required: "Name is required" })}
-            placeholder="Your Name"
-            className={`w-full border rounded-md p-3 focus:ring-2 focus:ring-teal-500 focus:outline-none ${
-              errors.name ? "border-red-500" : ""
-            }`}
-          />
-          {errors.name && (
-            <p className="text-red-500 text-sm mt-1">{errors.name.message}</p>
-          )}
-        </div>
-
-        {/* Email */}
-        <div>
-          <label className="block text-gray-700 dark:text-gray-200 font-medium mb-2">
-            Email
-          </label>
-          <input
-            type="email"
-            {...register("email", {
-              required: "Email is required",
-              pattern: {
-                value: /^\S+@\S+$/i,
-                message: "Invalid email address",
-              },
-            })}
-            placeholder="Your Email"
-            className={`w-full border rounded-md p-3 focus:ring-2 focus:ring-teal-500 focus:outline-none ${
-              errors.email ? "border-red-500" : ""
-            }`}
-          />
-          {errors.email && (
-            <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>
-          )}
-        </div>
-
-        {/* Subject */}
-        <div>
-          <label className="block text-gray-700 dark:text-gray-200 font-medium mb-2">
-            Subject
-          </label>
-          <input
-            type="text"
-            {...register("subject", { required: "Subject is required" })}
-            placeholder="Subject"
-            className={`w-full border rounded-md p-3 focus:ring-2 focus:ring-teal-500 focus:outline-none ${
-              errors.subject ? "border-red-500" : ""
-            }`}
-          />
-          {errors.subject && (
-            <p className="text-red-500 text-sm mt-1">{errors.subject.message}</p>
-          )}
-        </div>
-
-        {/* Message */}
-        <div>
-          <label className="block text-gray-700 dark:text-gray-200 font-medium mb-2">
-            Message
-          </label>
-          <textarea
-            rows="5"
-            {...register("message", { required: "Message is required" })}
-            placeholder="Write your message here..."
-            className={`w-full border rounded-md p-3 focus:ring-2 focus:ring-teal-500 focus:outline-none ${
-              errors.message ? "border-red-500" : ""
-            }`}
-          ></textarea>
-          {errors.message && (
-            <p className="text-red-500 text-sm mt-1">{errors.message.message}</p>
-          )}
-        </div>
-
-        {/* Submit Button */}
-        <motion.button
-          type="submit"
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          className={`w-full py-3 bg-teal-600 text-white font-semibold rounded-md hover:bg-teal-700 transition ${
-            isSubmitting ? "opacity-70 cursor-not-allowed" : ""
-          }`}
-          disabled={isSubmitting}
+    <section className="py-20 bg-gradient-to-b ">
+      <div className="w-11/12 mx-auto grid lg:grid-cols-3 gap-10 items-start px-3">
+        {/* Left Side - Contact Info Card */}
+        <motion.div
+          className="bg-teal-600 text-white rounded-3xl shadow-2xl p-8 flex flex-col items-start gap-6"
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8 }}
         >
-          {isSubmitting ? "Sending..." : "Send Message"}
-        </motion.button>
-      </form>
-    </div>
+          <img
+            src={contactImage}
+            alt="Contact"
+            className="rounded-2xl w-full mb-6 hidden lg:block object-cover h-60"
+          />
+          <h3 className="text-2xl font-bold mb-4">Contact Info</h3>
+          <div className="space-y-3 text-white">
+            <p>
+              <strong>Phone:</strong> +8801758197272
+            </p>
+            <p>
+              <strong>Email:</strong> info@homehero.com
+            </p>
+            <p>
+              <strong>Address:</strong> 18 Street, Dhaka
+            </p>
+          </div>
+        </motion.div>
+
+        {/* Right Side - Contact Form */}
+        <motion.div
+          className="lg:col-span-2 bg-white dark:bg-slate-800 rounded-3xl shadow-2xl p-10 lg:p-16"
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+        >
+          <h2 className="text-4xl font-bold text-teal-600 mb-4 text-center lg:text-left">
+            Get in Touch
+          </h2>
+          <p className="text-gray-600 dark:text-gray-300 mb-10 text-center lg:text-left">
+            Have questions or need assistance? Fill out the form below, and our team will respond quickly.
+          </p>
+
+          <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+            {/* Name */}
+            <div className="relative">
+              <input
+                type="text"
+                {...register("name", { required: "Name is required" })}
+                placeholder="Your Name ... "
+                className={`peer w-full border border-gray-300 dark:border-gray-600 rounded-lg p-4 text-black focus:ring-2 focus:ring-teal-500 focus:outline-none ${
+                  errors.name ? "border-red-500" : ""
+                }`}
+              />
+              
+              {errors.name && (
+                <p className="text-red-500 text-sm mt-1">{errors.name.message}</p>
+              )}
+            </div>
+
+            {/* Email */}
+            <div className="relative">
+              <input
+                type="email"
+                {...register("email", {
+                  required: "Email is required",
+                  pattern: {
+                    value: /^\S+@\S+$/i,
+                    message: "Invalid email address",
+                  },
+                })}
+                placeholder="Your Email "
+                className={`peer w-full border border-gray-300 dark:border-gray-600 rounded-lg p-4 text-black focus:ring-2 focus:ring-teal-500 focus:outline-none ${
+                  errors.email ? "border-red-500" : ""
+                }`}
+              />
+              
+              {errors.email && (
+                <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>
+              )}
+            </div>
+
+            {/* Subject */}
+            <div className="relative">
+              <input
+                type="text"
+                {...register("subject", { required: "Subject is required" })}
+                placeholder="Your Subject... "
+                className={`peer w-full border border-gray-300 dark:border-gray-600 rounded-lg p-4 text-black focus:ring-2 focus:ring-teal-500 focus:outline-none ${
+                  errors.subject ? "border-red-500" : ""
+                }`}
+              />
+             
+              {errors.subject && (
+                <p className="text-red-500 text-sm mt-1">{errors.subject.message}</p>
+              )}
+            </div>
+
+            {/* Message */}
+            <div className="relative">
+              <textarea
+                rows="5"
+                {...register("message", { required: "Message is required" })}
+                placeholder="Your Message... "
+                className={`peer w-full border border-gray-300 dark:border-gray-600 rounded-lg p-4 text-black focus:ring-2 focus:ring-teal-500 focus:outline-none ${
+                  errors.message ? "border-red-500" : ""
+                }`}
+              ></textarea>
+             
+              {errors.message && (
+                <p className="text-red-500 text-sm mt-1">{errors.message.message}</p>
+              )}
+            </div>
+
+            {/* Submit Button */}
+            <motion.button
+              type="submit"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className={`w-full py-3 bg-gradient-to-r from-teal-500 to-teal-600 text-white font-semibold rounded-lg shadow-lg cursor-pointer hover:shadow-xl transition ${
+                isSubmitting ? "opacity-70 cursor-not-allowed" : ""
+              }`}
+              disabled={isSubmitting}
+            >
+              {isSubmitting ? "Sending..." : "Send Message"}
+            </motion.button>
+          </form>
+        </motion.div>
+      </div>
+    </section>
   );
 };
 

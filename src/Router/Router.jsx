@@ -17,6 +17,7 @@ import FAQ from "../Pages/FAQ";
 import ContactUs from "../Pages/ContactUs";
 import ServiceOverview from "../Pages/ServiceOverview";
 import HowItWorks from "../Pages/HowItWorks";
+import AboutUs from "../Pages/AboutUs";
 
 export const router = createBrowserRouter([
   {
@@ -44,6 +45,10 @@ export const router = createBrowserRouter([
       {
         path:'/faq',
         element:<FAQ />
+      },
+      {
+        path:'/about-us',
+        element:<AboutUs />
       },
       {
         path:'/contact',
