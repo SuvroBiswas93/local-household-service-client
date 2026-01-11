@@ -124,7 +124,7 @@ const MyServices = () => {
 
       {loading ? (
         <div className="flex justify-center items-center mt-12">
-          <div className="loader border-t-4 border-teal600 border-solid rounded-full w-12 h-12 animate-spin"></div>
+          <div className="loader border-t-4 border-teal-600 border-solid rounded-full w-12 h-12 animate-spin"></div>
         </div>
       ) : services.length === 0 ? (
         <div className="text-center py-12">

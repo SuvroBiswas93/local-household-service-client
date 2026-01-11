@@ -13,6 +13,10 @@ import MyBookings from "../Pages/MyBookings";
 import MyServices from "../Pages/MyServices";
 import ErrorPage from "../Pages/ErrorPage";
 import MyProfile from "../Pages/MyProfile";
+import FAQ from "../Pages/FAQ";
+import ContactUs from "../Pages/ContactUs";
+import ServiceOverview from "../Pages/ServiceOverview";
+import HowItWorks from "../Pages/HowItWorks";
 
 export const router = createBrowserRouter([
   {
@@ -30,6 +34,22 @@ export const router = createBrowserRouter([
         
       },
       {
+        path:'/service-overview',
+        element:<ServiceOverview />
+      },
+      {
+        path:'/how-it-works',
+        element:<HowItWorks />
+      },
+      {
+        path:'/faq',
+        element:<FAQ />
+      },
+      {
+        path:'/contact',
+        element:<ContactUs  />
+      },
+      {
         path:'/add-service',
         element:<PrivateRoute>
           <AddService></AddService>
@@ -37,9 +57,7 @@ export const router = createBrowserRouter([
       },
       {
         path :'/service-details/:id',
-        element:<PrivateRoute>
-          <ServiceDetails></ServiceDetails>
-        </PrivateRoute>,
+        element:<ServiceDetails></ServiceDetails>,
         loader:({params})=>fetch(`https://local-household-service-server.vercel.app/services/${params.id}`),
         hydrateFallbackElement:<div className="flex justify-center items-center mt-12">
           <div className="loader border-t-4 border-teal-600 border-solid rounded-full w-12 h-12 animate-spin"></div>

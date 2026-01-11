@@ -93,13 +93,13 @@ const MyBookings = () => {
   if (loading) {
     return (
       <div className="flex justify-center items-center mt-12">
-        <div className="loader border-t-4 border-blue-600 border-solid rounded-full w-12 h-12 animate-spin"></div>
+        <div className="loader border-t-4 border-teal-600 border-solid rounded-full w-12 h-12 animate-spin"></div>
       </div>
     );
   }
 
   return (
-    <div className="w-11/12 mx-auto p-6">
+    <div className="w-11/12 mx-auto p-4">
       <h1 className="text-2xl md:text-3xl font-bold mb-6 text-center">
         My Bookings
       </h1>
@@ -111,7 +111,7 @@ const MyBookings = () => {
           {/* Table for md and up */}
           <div className="hidden md:block overflow-x-auto">
             <table className="w-full dark:bg-black rounded-xl shadow-lg overflow-hidden">
-              <thead className="bg-blue-600 text-white">
+              <thead className="bg-teal-600 text-white">
                 <tr>
                   <th className="py-3 px-4 text-left">Service</th>
                   <th className="py-3 px-4 text-left">Service ID</th>

@@ -47,6 +47,8 @@ const Navbar = () => {
                         <ul className="menu menu-sm dropdown-content bg-base-100 rounded-box shadow mt-3 w-44 p-2 z-50">
                             <li><NavLink to="/" end className={navLinkClass}>Home</NavLink></li>
                             <li><NavLink to="/services" className={navLinkClass}>Service List</NavLink></li>
+                            <li><NavLink to="/faq" className={navLinkClass}>FAQ</NavLink></li>
+                            <li><NavLink to="/contact" className={navLinkClass}>Contact Us</NavLink></li>
 
                             {user && (
                                 <>
@@ -78,6 +80,8 @@ const Navbar = () => {
                     <ul className="menu-horizontal flex gap-6 font-semibold">
                         <li><NavLink to="/" end className={navLinkClass}>Home</NavLink></li>
                         <li><NavLink to="/services" className={navLinkClass}>Service List</NavLink></li>
+                        <li><NavLink to="/faq" className={navLinkClass}>FAQ</NavLink></li>
+                        <li><NavLink to="/contact" className={navLinkClass}>Contact Us</NavLink></li>
 
                         {user && (
                             <>
