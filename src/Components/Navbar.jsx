@@ -66,11 +66,11 @@ const Navbar = () => {
                     <motion.div
                         className="flex items-center cursor-pointer"
                         whileHover={{ scale: 1.1 }}
-                        whileTap={{ scale: 0.95 }}
+                        whileTap={{ scale: 0.90 }}
                         onClick={() => navigate("/")}
                     >
-                        <img src={logo} alt="Logo" className="w-10 h-10 mr-1" />
-                        <span className="text-xl font-bold bg-gradient-to-r from-blue-800 to-teal-500 bg-clip-text text-transparent">
+                        <img src={logo} alt="Logo" className="w-10 h-10 mr-1 rounded-lg" />
+                        <span className="text-xl font-bold bg-linear-to-r from-teal-500 to-blue-700 bg-clip-text text-transparent">
                             HomeHero
                         </span>
                     </motion.div>
@@ -136,7 +136,7 @@ const Navbar = () => {
                             transition={{ duration: 0.4 }}
                         >
                             <motion.div whileHover={{ scale: 1.08 }} whileTap={{ scale: 0.95 }}>
-                                <Link to="/auth/login" className="btn btn-sm bg-blue-800 text-white">
+                                <Link to="/auth/login" className="btn btn-sm bg-blue-700 text-white">
                                     Login
                                 </Link>
                             </motion.div>

@@ -17,7 +17,7 @@ const Footer = () => {
 
   return (
     <div className="dark:bg-black text-gray-900 dark:text-white mt-20 py-10">
-      <div className="w-11/12 mx-auto">
+      <div className="w-11/12 mx-auto px-3">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           {/* Brand */}
           <div>
@@ -25,14 +25,14 @@ const Footer = () => {
             <motion.div
               className="flex items-center cursor-pointer"
               whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
+              whileTap={{ scale: 0.90 }}
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ type: "spring", stiffness: 150, damping: 15 }}
               onClick={() => navigate("/")} // programmatic navigation
             >
-              <img src={logo} alt="Logo" className="w-10 h-10 mr-1" />
-              <span className="text-xl font-bold bg-gradient-to-r from-blue-900 to-teal-500 bg-clip-text text-transparent">
+              <img src={logo} alt="Logo" className="w-10 h-10 mr-1 rounded-lg" />
+              <span className="text-xl font-bold bg-linear-to-r from-teal-500 to-blue-700 bg-clip-text text-transparent">
                 HomeHero
               </span>
             </motion.div>

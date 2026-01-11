@@ -4,7 +4,7 @@ const PrivacyPolicy = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
-      <div className="bg-gradient-to-r from-blue-900 to-teal-600 text-white py-16">
+      <div className="bg-gradient-to-r from-teal-500 to-blue-700 text-white py-16">
         <div className="max-w-6xl mx-auto px-6 text-center">
           <h1 className="text-4xl font-bold mb-4">Privacy Policy</h1>
           <p className="text-gray-200 max-w-2xl mx-auto">
@@ -82,7 +82,7 @@ const PrivacyPolicy = () => {
         </section>
 
         {/* Contact */}
-        <section className="bg-gradient-to-r from-blue-900 to-teal-600 text-white p-10 rounded-2xl text-center">
+        <section className="bg-gradient-to-r from-teal-500 to-blue-700 text-white p-10 rounded-2xl text-center">
           <Mail className="mx-auto mb-4" size={32} />
           <h2 className="text-2xl font-semibold mb-2">Contact Us</h2>
           <p className="text-gray-200 mb-4">

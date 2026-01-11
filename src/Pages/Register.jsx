@@ -56,7 +56,7 @@ const Register = () => {
           <div className="flex items-center justify-center gap-2 mb-4">
             <img src={logo} alt="" className="w-10 h-10" />
             <h1 className="text-3xl font-bold">
-              <span className="bg-gradient-to-r from-blue-900 to-teal-500 bg-clip-text text-transparent">
+              <span className="bg-linear-to-r from-teal-500 to-blue-700 bg-clip-text text-transparent">
                 HomeHero Register
               </span>
             </h1>

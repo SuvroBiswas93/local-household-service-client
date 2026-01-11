@@ -149,7 +149,7 @@ const Login = () => {
         <div className="order-1 md:order-2 text-right">
           <div className="flex justify-center items-center gap-2 mb-4">
             <img src={logo} alt="" className="w-10 h-10" />
-            <h1 className="text-4xl font-bold bg-gradient-to-r from-blue-900 to-teal-500 bg-clip-text text-transparent">
+            <h1 className="text-4xl font-bold bg-gradient-to-r from-teal-500 to-blue-700 bg-clip-text text-transparent">
               HomeHero Login
             </h1>
           </div>
