@@ -1,15 +1,13 @@
 import React, { use, useEffect, useState } from 'react';
-import { Link, Navigate, NavLink } from 'react-router';
+import { Link, NavLink, useNavigate } from 'react-router';
 import { AuthContext } from '../Provider/AuthProvider';
 import { toast } from 'react-toastify';
-import logo from '../../public/HomeHero.webp'
-import { motion } from "motion/react";
-
-const MotionLink = motion(Link);
+import logo from '../../public/HomeHero.webp';
+import { motion } from "framer-motion";
 
 const Navbar = () => {
-    const { user, logOut } = use(AuthContext)
-    // const loginTime = localStorage.getItem("loginTime");
+    const { user, logOut } = use(AuthContext);
+    const navigate = useNavigate(); // <-- Added for HomeHero navigation
 
     // Theme Toggling
     const [theme, setTheme] = useState(
@@ -27,13 +25,13 @@ const Navbar = () => {
     const handleLogout = () => {
         logOut()
             .then(() => {
-                // localStorage.removeItem("loginTime");
                 toast.success("You Logged Out successfully");
             })
             .catch((error) => {
                 toast.error(error);
             });
-    }
+    };
+
     return (
         <div className="navbar bg-base-100 shadow-sm fixed top-0 left-0 w-full z-50">
             <div className="w-11/12 mx-auto flex justify-between items-center">
@@ -69,8 +67,8 @@ const Navbar = () => {
                                 </NavLink>
                             </li>
 
-                            {
-                                user && (<>
+                            {user && (
+                                <>
                                     <li>
                                         <NavLink to="/add-service"
                                             className={({ isActive }) =>
@@ -103,24 +101,27 @@ const Navbar = () => {
                                             My Profile
                                         </NavLink>
                                     </li>
-                                </>)
-                            }
+                                </>
+                            )}
                         </ul>
                     </div>
 
-                    {/* Logo */}
-                    <MotionLink
-                        to="/"
-                        className="flex items-center text-xl font-bold bg-linear-to-r from-blue-900 to-teal-500 bg-clip-text text-transparent"
-                        whileHover={{ scale: 1.1 }}   // Slightly enlarge on hover
-                        whileTap={{ scale: 0.95 }}    // Small tap effect
-                        initial={{ opacity: 0, y: -10 }} // Fade in from above
+                    {/* Logo/HomeHero */}
+                    <motion.div
+                        className="flex items-center cursor-pointer"
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.95 }}
+                        initial={{ opacity: 0, y: -10 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ type: "spring", stiffness: 150, damping: 15 }} // Smooth spring motion
+                        transition={{ type: "spring", stiffness: 150, damping: 15 }}
+                        onClick={() => navigate("/")} // <-- Programmatic navigation
                     >
                         <img src={logo} alt="Logo" className="w-10 h-10 mr-1" />
-                        <span>HomeHero</span>
-                    </MotionLink>
+                        <span className="text-xl font-bold bg-gradient-to-r from-blue-900 to-teal-500 bg-clip-text text-transparent">
+                            HomeHero
+                        </span>
+                    </motion.div>
+
                 </div>
 
                 {/* Center menu (Desktop only) */}
@@ -143,11 +144,8 @@ const Navbar = () => {
                             </NavLink>
                         </li>
 
-
-                        {/* when user login the navabar should contains */}
-
-                        {
-                            user && (<>
+                        {user && (
+                            <>
                                 <li>
                                     <NavLink to="/add-service"
                                         className={({ isActive }) =>
@@ -172,8 +170,6 @@ const Navbar = () => {
                                         My Services
                                     </NavLink>
                                 </li>
-
-
                                 <li>
                                     <NavLink to="/my-profile"
                                         className={({ isActive }) =>
@@ -182,23 +178,18 @@ const Navbar = () => {
                                         My Profile
                                     </NavLink>
                                 </li>
-                            </>)
-                        }
+                            </>
+                        )}
                     </ul>
                 </div>
 
-                {/* div image thakbe state true false */}
-
-
+                {/* Right side (Login/Register or User Avatar) */}
                 {user ? (
                     <div className="dropdown dropdown-end">
                         <div tabIndex={0} role="button" className="avatar cursor-pointer">
                             <div className="w-10 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
                                 <img
-                                    src={
-                                        user?.photoURL ||
-                                        'https://img.daisyui.com/images/profile/demo/spiderperson@192.webp'
-                                    }
+                                    src={user?.photoURL || 'https://img.daisyui.com/images/profile/demo/spiderperson@192.webp'}
                                     alt="User Avatar"
                                 />
                             </div>
@@ -215,9 +206,6 @@ const Navbar = () => {
                                 {user?.email || 'User'}
                             </li>
 
-                            {/* <li className="text-center text-sm text-gray-500 py-1">
-                                Login: {loginTime || 'Unknown'}
-                            </li> */}
                             <div className="divider my-1"></div>
                             <li className="flex justify-center items-center py-2">
                                 <input
@@ -239,23 +227,16 @@ const Navbar = () => {
                     </div>
                 ) : (
                     <div className="flex justify-center items-center gap-2 shrink-0">
-                        <MotionLink
-
-                            to="/auth/login"
-                            whileHover={{ scale: 1.1 }}
-                            whileTap={{ scale: 0.9 }}
-                            className="btn btn-sm lg:btn-md bg-green-600 text-white hover:bg-green-700"
-                        >
-                            Login
-                        </MotionLink>
-                        <MotionLink
-                            to="/auth/register"
-                            whileHover={{ scale: 1.1 }}
-                            whileTap={{ scale: 0.9 }}
-                            className="btn btn-sm lg:btn-md bg-blue-400 text-white hover:bg-blue-500"
-                        >
-                            Register
-                        </MotionLink>
+                        <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
+                            <Link to="/auth/login" className="btn btn-sm lg:btn-md bg-green-600 text-white hover:bg-green-700">
+                                Login
+                            </Link>
+                        </motion.div>
+                        <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
+                            <Link to="/auth/register" className="btn btn-sm lg:btn-md bg-blue-400 text-white hover:bg-blue-500">
+                                Register
+                            </Link>
+                        </motion.div>
                         <input
                             type="checkbox"
                             value="synthwave"

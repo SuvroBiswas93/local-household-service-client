@@ -64,14 +64,14 @@ const ServiceDetails = () => {
   return (
     <div className="min-h-screen bg-linear-to-br from-blue-50 via-white to-blue-100 pb-16">
       {/* HEADER */}
-      <div className="relative w-full h-64 bg-linear-to-r from-blue-500 to-blue-400 flex items-center justify-center text-white shadow-xl">
+      <div className="relative w-full h-64 bg-linear-to-r from-teal-500 to-teal-400 flex items-center justify-center text-white shadow-xl">
         <div className="backdrop-blur-md bg-white/10 px-8 py-4 rounded-2xl border border-white/20 shadow-lg">
           <h1 className="text-4xl md:text-5xl font-bold drop-shadow">{Service}</h1>
         </div>
       </div>
 
       {/* MAIN CONTENT */}
-      <div className="max-w-6xl mx-auto px-6 -mt-24">
+      <div className="w-11/12 mx-auto px-6 -mt-24">
         <motion.div
           initial={{ opacity: 0, y: 60 }}
           animate={{ opacity: 1, y: 0 }}
@@ -79,7 +79,7 @@ const ServiceDetails = () => {
           className="bg-white rounded-3xl shadow-2xl p-8 relative overflow-hidden"
         >
           {/* ACCENT LEFT BAR */}
-          <div className="absolute left-0 top-0 h-full w-2 bg-blue-600"></div>
+          <div className="absolute left-0 top-0 h-full w-2 bg-teal-600"></div>
 
           <div className="grid md:grid-cols-2 gap-10 items-start">
             {/* Floating Image Card */}
@@ -99,21 +99,21 @@ const ServiceDetails = () => {
               {/* Info Badges */}
               {/* Additional Information */}
               <div className="bg-blue-50 border border-blue-200 rounded-xl p-6 shadow-sm max-w-md">
-                <h3 className="text-xl font-semibold text-blue-800 mb-4">Service Details Info</h3>
+                <h3 className="text-xl font-semibold text-teal-800 mb-4">Service Details Info</h3>
 
                 <div className="flex flex-col gap-3 text-gray-700">
                   <div className="flex justify-between items-center bg-white px-4 py-2 rounded-lg shadow-sm">
-                    <span className="font-medium text-blue-600">Provider Email:</span>
+                    <span className="font-medium text-teal-600">Provider Email:</span>
                     <span className="text-gray-800">{Email}</span>
                   </div>
 
                   <div className="flex justify-between items-center bg-white px-4 py-2 rounded-lg shadow-sm">
-                    <span className="font-medium text-blue-600">Created By:</span>
+                    <span className="font-medium text-teal-600">Created By:</span>
                     <span className="text-gray-800">{created_By || "Not Available"}</span>
                   </div>
 
                   <div className="flex justify-between items-center bg-white px-4 py-2 rounded-lg shadow-sm">
-                    <span className="font-medium text-blue-600">Created At:</span>
+                    <span className="font-medium text-teal-600">Created At:</span>
                     <span className="text-gray-800">
                       {created_At ? new Date(created_At).toLocaleDateString() : "Not Available"}
                     </span>
@@ -124,7 +124,7 @@ const ServiceDetails = () => {
 
 
               <div className="flex flex-wrap gap-3">
-                <span className="flex items-center gap-2 px-4 py-2 bg-blue-50 text-blue-700 rounded-full">
+                <span className="flex items-center gap-2 px-4 py-2 bg-blue-50 text-teal-700 rounded-full">
                   <User size={18} /> {Provider}
                 </span>
 
@@ -140,7 +140,7 @@ const ServiceDetails = () => {
               {/* Reviews Section */}
               {data.result.reviews && data.result.reviews.length > 0 && (
                 <div className="max-w-4xl mx-auto mt-12">
-                  <h2 className="text-2xl font-bold mb-6 text-blue-700">Reviews</h2>
+                  <h2 className="text-2xl font-bold mb-6 text-teal-700">Reviews</h2>
                   <div className="space-y-4">
                     {data.result.reviews.map((review, index) => (
                       <motion.div
@@ -190,7 +190,7 @@ const ServiceDetails = () => {
                   className={`w-full md:w-auto px-8 py-3 rounded-xl font-semibold shadow-md
                     ${!user || isOwner || alreadyBooked
                       ? "bg-gray-400 cursor-not-allowed"
-                      : "bg-green-600 cursor-pointer text-white hover:bg-green-700"
+                      : "bg-teal-600 cursor-pointer text-white hover:bg-teal-700"
                     }
                   `}
                 >
@@ -220,13 +220,13 @@ const ServiceDetails = () => {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.7, opacity: 0 }}
               transition={{ type: "spring", stiffness: 120 }}
-              className="bg-white p-8  bg-linear-to-r from-green-400 to-blue-400 rounded-2xl w-full max-w-md shadow-xl"
+              className="bg-white p-8  rounded-2xl w-full max-w-md shadow-xl"
             >
-              <h2 className="text-2xl font-bold mb-4 text-center">Confirm Booking</h2>
+              <h2 className="text-2xl font-bold mb-4 text-center text-teal-400">Confirm Booking</h2>
 
               <form onSubmit={handleBooking} className="space-y-5 ">
                 <div>
-                  <label className="text-sm font-semibold">Service ID</label>
+                  <label className="text-sm font-semibold text-black">Service ID</label>
                   <input
                     type="text"
                     value={_id}
@@ -236,7 +236,7 @@ const ServiceDetails = () => {
                 </div>
 
                 <div>
-                  <label className="text-sm font-semibold">Price</label>
+                  <label className="text-sm font-semibold text-black">Price</label>
                   <input
                     type="text"
                     value={`$${Price}`}
@@ -246,7 +246,7 @@ const ServiceDetails = () => {
                 </div>
 
                 <div>
-                  <label className="text-sm font-semibold">Email</label>
+                  <label className="text-sm font-semibold text-black">Email</label>
                   <input
                     type="email"
                     value={user?.email}
@@ -256,27 +256,27 @@ const ServiceDetails = () => {
                 </div>
 
                 <div>
-                  <label className="text-sm font-semibold">Booking Date</label>
+                  <label className="text-sm font-semibold text-black ">Booking Date</label>
                   <input
                     type="date"
                     name="bookingDate"
                     required
-                    className="w-full px-3 py-2 border rounded"
+                    className="w-full px-3 py-2 border rounded bg-gray-300 text-black "
                   />
                 </div>
 
-                <div className="flex justify-end gap-3 pt-3">
+                <div className="flex justify-end gap-3 pt-3 text-black">
                   <button
                     type="button"
                     onClick={() => setOpen(false)}
-                    className="px-4 py-2 rounded-lg bg-red-400 cursor-pointer text-white"
+                    className="px-4 py-2 rounded-lg bg-red-400 hover:bg-red-500 cursor-pointer text-black"
                   >
                     Cancel
                   </button>
 
                   <button
                     type="submit"
-                    className="px-4 py-2 bg-blue-500 text-white rounded-lg cursor-pointer hover:bg-blue-600"
+                    className="px-4 py-2 bg-green-600 text-white rounded-lg cursor-pointer hover:bg-green-700"
                   >
                     Confirm
                   </button>

@@ -85,7 +85,8 @@ const HeroSlider = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6 }}
-              className="px-6 py-3 bg-green-600 hover:bg-green-700 rounded-lg font-semibold shadow-md cursor-pointer"
+              className="px-6 py-3 bg-gradient-to-r from-blue-900 to-teal-500 hover:from-blue-800 hover:to-teal-600
+ rounded-lg font-semibold shadow-md cursor-pointer"
             >
               Explore More
             </MotionLink>

@@ -15,7 +15,7 @@ const testimonials = [
     img: "https://randomuser.me/api/portraits/men/75.jpg",
   },
   {
-    text: "Great platform! The cleaner did an amazing job—my house feels brand new.",
+    text: "Great platform! The cleaner did an amazing job-my house feels brand new.",
     name: "Sofia Mendes",
     role: "Working Professional",
     img: "https://randomuser.me/api/portraits/women/55.jpg",
@@ -32,7 +32,7 @@ const ParallaxCard = ({ testimonial }) => {
 
   return (
     <motion.div
-      className="p-6 bg-blue-100 rounded-xl shadow-lg cursor-pointer"
+      className="p-6 bg-gradient-to-r from-blue-400 to-teal-300  rounded-xl shadow-lg cursor-pointer"
       style={{ rotateX, rotateY, x, y, perspective: 1000 }}
       whileHover={{ scale: 1.05 }}
       onMouseMove={(e) => {
@@ -54,7 +54,7 @@ const ParallaxCard = ({ testimonial }) => {
           alt={testimonial.name}
         />
         <h4 className="font-semibold">{testimonial.name}</h4>
-        <p className="text-sm text-gray-500">{testimonial.role}</p>
+        <p className="text-sm text-white">{testimonial.role}</p>
       </div>
     </motion.div>
   );
@@ -62,7 +62,7 @@ const ParallaxCard = ({ testimonial }) => {
 
 const Testimonials = () => {
   return (
-    <section className="px-6 py-16 dark:bg-black text-gray-900 ">
+    <section className="px-3 py-16 dark:bg-black text-gray-900 ">
       <div className="w-11/12 mx-auto text-center">
         <h2 className="text-3xl font-bold text-teal-500  mb-4">
           What Our Customers Say

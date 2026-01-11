@@ -7,7 +7,7 @@ const ServiceCard = ({ data }) => {
 
   return (
     <div
-      className="bg-white rounded-2xl shadow-lg overflow-hidden max-w-sm mx-auto cursor-pointer 
+      className="bg-white rounded-2xl shadow-lg overflow-hidden w-11/12 mx-auto cursor-pointer 
       transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 hover:scale-[1.03]"
     >
       {/* Image */}
@@ -45,7 +45,7 @@ const ServiceCard = ({ data }) => {
 
         <Link
           to={`/service-details/${_id}`}
-          className="block w-full bg-blue-500 cursor-pointer text-center text-white py-2 rounded-lg hover:bg-blue-600 transition"
+          className="block w-full bg-teal-500 cursor-pointer text-center text-white py-2 rounded-lg hover:bg-teal-600 transition"
         >
           View Details
         </Link>

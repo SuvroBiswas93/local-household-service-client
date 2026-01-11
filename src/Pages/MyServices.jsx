@@ -120,11 +120,11 @@ const MyServices = () => {
 
   return (
     <div className="p-4 w-11/12 mx-auto">
-      <h1 className="text-3xl  mb-4 text-center font-bold text-blue-500">My Services</h1>
+      <h1 className="text-3xl  mb-4 text-center font-bold text-teal-500">My Services</h1>
 
       {loading ? (
         <div className="flex justify-center items-center mt-12">
-          <div className="loader border-t-4 border-blue-600 border-solid rounded-full w-12 h-12 animate-spin"></div>
+          <div className="loader border-t-4 border-teal600 border-solid rounded-full w-12 h-12 animate-spin"></div>
         </div>
       ) : services.length === 0 ? (
         <div className="text-center py-12">
@@ -133,7 +133,7 @@ const MyServices = () => {
       ) : (
         <div className="overflow-x-auto bg-white shadow-sm rounded-lg">
           <table className="min-w-full divide-y divide-gray-200">
-            <thead className="bg-blue-600 ">
+            <thead className="bg-teal-600 ">
               <tr>
                 <th className="px-4 py-3 text-left text-xs font-semibold text-white uppercase tracking-wider">Service</th>
                 <th className="px-4 py-3 text-left text-xs font-semibold text-white uppercase tracking-wider hidden sm:table-cell">Category</th>
@@ -165,7 +165,7 @@ const MyServices = () => {
                     <div className="flex items-center justify-end gap-2">
                       <button
                         onClick={() => openEditModal(s)}
-                        className="px-3 py-1 rounded-md cursor-pointer bg-indigo-600 text-white text-sm hover:bg-indigo-700"
+                        className="px-3 py-1 rounded-md cursor-pointer bg-green-600 text-white text-sm hover:bg-green-700"
                       >
                         Edit
                       </button>

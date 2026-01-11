@@ -39,12 +39,12 @@ const MyProfile = () => {
     return (
         <div className="flex flex-col items-center justify-center min-h-screen p-4">
             <div className="bg-white rounded-2xl shadow-lg p-8 w-full max-w-md border  border-blue-50 text-center">
-                <h2 className="text-2xl font-semibold text-green-700 mb-6">My Profile</h2>
+                <h2 className="text-2xl font-semibold text-teal-700 mb-6">My Profile</h2>
 
                 <img
                     src={user?.photoURL || "https://via.placeholder.com/150"}
                     alt="Profile"
-                    className="w-32 h-32 rounded-full object-cover mx-auto border-4 border-green-200 mb-4"
+                    className="w-32 h-32 rounded-full object-cover mx-auto border-4 border-teal-400 mb-4"
                 />
 
                 {!editing ? (
@@ -64,7 +64,7 @@ const MyProfile = () => {
 
                         <button
                             onClick={() => setEditing(true)}
-                            className="bg-linear-to-r from-green-600 cursor-pointer to-emerald-600 text-white px-6 py-2 rounded-lg font-semibold hover:from-green-700 hover:to-emerald-700 transition"
+                            className="bg-teal-500 hover:bg-teal-600 cursor-pointer text-white px-6 py-2 rounded-lg font-semibold hover:from-green-700 hover:to-emerald-700 transition"
                         >
                             Update Profile
                         </button>
@@ -104,7 +104,7 @@ const MyProfile = () => {
                             <button
                                 type="button"
                                 onClick={() => setEditing(false)}
-                                className="px-5 py-2 cursor-pointer rounded-lg border bg-blue-400 text-white hover:bg-blue-500"
+                                className="px-5 py-2 cursor-pointer rounded-lg border bg-red-400 text-white hover:bg-red-500"
                             >
                                 Cancel
                             </button>

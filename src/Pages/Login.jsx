@@ -49,8 +49,8 @@ const Login = () => {
         }
     }
     return (
-        <div className="min-h-screen flex items-center justify-center bg-linear-to-r from-green-100 to-emerald-100 px-6 rounded-md">
-            <div className="w-full max-w-5xl grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+        <div className="min-h-screen flex items-center justify-center bg-linear-to-r from-blue-200 to-teal-200  rounded-md">
+            <div className=" w-11/12 mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
 
                 {/* LEFT — Login Form */}
                 <div className="order-2 md:order-1 bg-white rounded-2xl shadow-lg p-8 border border-green-100">
@@ -97,7 +97,7 @@ const Login = () => {
                         <button
                             type="submit"
                             disabled={loading}
-                            className="w-full bg-linear-to-r from-green-600 cursor-pointer to-emerald-600 text-white py-3 rounded-lg font-semibold hover:from-green-700 hover:to-emerald-700 transition"
+                            className="w-full bg-teal-500  text-white py-3 rounded-lg font-semibold cursor-pointer hover:bg-teal-600 transition"
                         >
                             {loading ? "Logging in..." : "Login"}
                         </button>
@@ -121,7 +121,7 @@ const Login = () => {
 
                     <p className="text-center text-gray-600 mt-6">
                         Don't have an account?
-                        <Link to="/auth/register" className="text-green-600 hover:text-green-700 font-semibold">
+                        <Link to="/auth/register" className="text-teal-500 hover:text-teal-600 font-semibold">
                             Register
                         </Link>
                     </p>
@@ -131,8 +131,8 @@ const Login = () => {
                 <div className="order-1 md:order-2 text-right">
                     <div className="flex justify-center items-center gap-2 mb-4">
                         <img src={logo} alt="" className="w-10 h-10" />
-                        <h1 className="text-4xl font-bold text-green-700">
-                            Home<span className="text-blue-400">Hero</span> Login
+                        <h1 className="text-4xl font-bold  bg-gradient-to-r from-blue-900 to-teal-500 bg-clip-text text-transparent">
+                            HomeHero Login
                         </h1>
                     </div>
 

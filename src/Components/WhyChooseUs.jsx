@@ -39,7 +39,7 @@ const FeatureCard = ({ feature }) => {
 const WhyChooseUs = () => {
   return (
     <motion.section
-      className="px-6 py-16 dark:bg-black"
+      className="px-3 py-16 dark:bg-black"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.3 }} // FAST, no delay
