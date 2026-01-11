@@ -64,7 +64,7 @@ const WhyChooseUs = () => {
           transition={{ duration: 0.3 }}
         >
           Finding reliable household services should be simple. HomeHero connects you with
-          trusted local experts—quickly and safely.
+          trusted local experts-quickly and safely.
         </motion.p>
 
         {/* Cards */}

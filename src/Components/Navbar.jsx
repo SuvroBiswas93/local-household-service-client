@@ -47,8 +47,6 @@ const Navbar = () => {
                         <ul className="menu menu-sm dropdown-content bg-base-100 rounded-box shadow mt-3 w-44 p-2 z-50">
                             <li><NavLink to="/" end className={navLinkClass}>Home</NavLink></li>
                             <li><NavLink to="/services" className={navLinkClass}>Service List</NavLink></li>
-                            <li><NavLink to="/faq" className={navLinkClass}>FAQ</NavLink></li>
-                            <li><NavLink to="/contact" className={navLinkClass}>Contact Us</NavLink></li>
 
                             {user && (
                                 <>
@@ -58,6 +56,9 @@ const Navbar = () => {
                                     <li><NavLink to="/my-profile" className={navLinkClass}>My Profile</NavLink></li>
                                 </>
                             )}
+                            <li><NavLink to="/faq" className={navLinkClass}>FAQ</NavLink></li>
+                            <li><NavLink to="/contact" className={navLinkClass}>Contact Us</NavLink></li>
+
                         </ul>
                     </div>
 
@@ -69,7 +70,7 @@ const Navbar = () => {
                         onClick={() => navigate("/")}
                     >
                         <img src={logo} alt="Logo" className="w-10 h-10 mr-1" />
-                        <span className="text-xl font-bold bg-gradient-to-r from-blue-900 to-teal-500 bg-clip-text text-transparent">
+                        <span className="text-xl font-bold bg-gradient-to-r from-blue-800 to-teal-500 bg-clip-text text-transparent">
                             HomeHero
                         </span>
                     </motion.div>
@@ -80,8 +81,7 @@ const Navbar = () => {
                     <ul className="menu-horizontal flex gap-6 font-semibold">
                         <li><NavLink to="/" end className={navLinkClass}>Home</NavLink></li>
                         <li><NavLink to="/services" className={navLinkClass}>Service List</NavLink></li>
-                        <li><NavLink to="/faq" className={navLinkClass}>FAQ</NavLink></li>
-                        <li><NavLink to="/contact" className={navLinkClass}>Contact Us</NavLink></li>
+
 
                         {user && (
                             <>
@@ -91,6 +91,8 @@ const Navbar = () => {
                                 <li><NavLink to="/my-profile" className={navLinkClass}>My Profile</NavLink></li>
                             </>
                         )}
+                        <li><NavLink to="/faq" className={navLinkClass}>FAQ</NavLink></li>
+                        <li><NavLink to="/contact" className={navLinkClass}>Contact Us</NavLink></li>
                     </ul>
                 </div>
 
@@ -134,7 +136,7 @@ const Navbar = () => {
                             transition={{ duration: 0.4 }}
                         >
                             <motion.div whileHover={{ scale: 1.08 }} whileTap={{ scale: 0.95 }}>
-                                <Link to="/auth/login" className="btn btn-sm bg-green-600 text-white">
+                                <Link to="/auth/login" className="btn btn-sm bg-blue-800 text-white">
                                     Login
                                 </Link>
                             </motion.div>

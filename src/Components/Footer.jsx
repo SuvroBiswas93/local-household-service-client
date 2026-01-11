@@ -46,7 +46,7 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-lg font-semibold mb-4 bg-gradient-to-r from-blue-900 to-teal-500 bg-clip-text text-transparent">
+            <h3 className="text-lg font-semibold mb-4 text-teal-600">
               Quick Links
             </h3>
             <ul className="space-y-2 text-sm">
@@ -73,7 +73,7 @@ const Footer = () => {
           {/* Support */}
 
           <div>
-            <h3 className="text-lg font-semibold mb-4 bg-gradient-to-r from-blue-900 to-teal-500 bg-clip-text text-transparent">
+            <h3 className="text-lg font-semibold mb-4 text-teal-600">
               Support
             </h3>
 
@@ -99,7 +99,7 @@ const Footer = () => {
 
           {/* Contact */}
           <div>
-            <h3 className="text-lg font-semibold mb-4 bg-gradient-to-r from-blue-900 to-teal-500 bg-clip-text text-transparent">
+            <h3 className="text-lg font-semibold mb-4 text-teal-600">
               Contact
             </h3>
             <ul className="space-y-3 text-sm">
@@ -128,7 +128,7 @@ const Footer = () => {
           <div className="flex gap-4 mb-4 md:mb-0">
             {/* Changed social MotionLink to motion.div + onClick */}
             <motion.div
-              className="w-10 h-10 bg-gradient-to-r from-blue-900 to-teal-500 rounded-full flex items-center justify-center text-white cursor-pointer"
+              className="w-10 h-10 bg-gradient-to-r from-blue-800 to-teal-500 rounded-full flex items-center justify-center text-white cursor-pointer"
               whileHover={{ scale: 1.15, backgroundColor: "#2563eb" }} // blue-600
               whileTap={{ scale: 0.95 }}
               transition={{ type: "spring", stiffness: 150, damping: 10 }}
@@ -138,7 +138,7 @@ const Footer = () => {
             </motion.div>
 
             <motion.div
-              className="w-10 h-10 bg-gradient-to-r from-blue-900 to-teal-500 rounded-full flex items-center justify-center text-white cursor-pointer"
+              className="w-10 h-10 bg-gradient-to-r from-blue-800 to-teal-500 rounded-full flex items-center justify-center text-white cursor-pointer"
               whileHover={{ scale: 1.15, backgroundColor: "#06b6d4" }} // cyan-500
               whileTap={{ scale: 0.95 }}
               transition={{ type: "spring", stiffness: 150, damping: 10 }}
@@ -148,7 +148,7 @@ const Footer = () => {
             </motion.div>
 
             <motion.div
-              className="w-10 h-10 bg-gradient-to-r from-blue-900 to-teal-500 rounded-full flex items-center justify-center text-white cursor-pointer"
+              className="w-10 h-10 bg-gradient-to-r from-blue-800 to-teal-500 rounded-full flex items-center justify-center text-white cursor-pointer"
               whileHover={{ scale: 1.15, backgroundColor: "#ec4899" }} // pink-500
               whileTap={{ scale: 0.95 }}
               transition={{ type: "spring", stiffness: 150, damping: 10 }}
